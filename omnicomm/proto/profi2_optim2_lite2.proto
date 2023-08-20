@@ -1,0 +1,122 @@
+message RecReg {
+  repeated uint32 mID = 1 [packed=true]; // идентификатор события (возможно несколько событий в одном сообщении.)
+  optional group General = 2 { // Основные параметры
+    optional uint32 Time = 1;//[4] Время/дата события (в OmnicommTime)
+    optional uint32 IDFAS = 2;//[4] Идентификатор бортового оборудования
+    optional bytes  IDDrv = 3;//[8] ID iButton (8 байт)
+    optional uint32 FLG = 4;//[1] Общие флаги состояния, см. Таблица 6.
+    optional uint32 Mileage = 5;//[4] Пробег (1LSB = 0.1 метр)
+    optional uint32 VImp = 6;//[2] Скорость по датчику (1LSB = 0.1км/ч)
+    optional uint32 TImp = 7;//[2] Обороты по датчику (1LSB = 1об./мин.)
+    optional uint32 Uboard = 8;//[4] Напряжение питания (1LSB = 0.1В)
+    optional uint32 BatLife =9;//[4] Уровень заряда аккумулятора (1LSB = 1%)
+    optional sint32 SumAcc = 10;//[4] Корень суммы квадратов ускорений осей x,y,z (1LSB = 0.01g)
+    optional bytes Phone = 11;//[6] Номер вызывающего или вызываемого абонента
+    optional sint32 AmtrX = 12;//[4] Ускорение по оси X
+    optional sint32 AmtrY = 13;//[4] Ускорение по оси Y
+    optional sint32 AmtrZ = 14;//[4] Ускорение по оси Z
+  }
+  optional group Photo = 4 { // Описание блока передачи части изображения
+    optional uint32 POSBLK=1;//[4] Позиция текущего блока (в байтах от начала фотографии)
+    optional uint32 SZPHOTO=2; //[4] Размер всей фотографии (в байтах)
+    optional uint32 SIZEBLK=3;//[4] Размер текущего блока фотографии (в байтах)
+    optional bytes IMGDAT=4;//[2048] Буфер фотографии (данные фотографии)
+    optional uint32 IDPH=5;//[4] Идентификатор фотографии
+    optional uint32 IMGSTAT=6;//[1] Статус изображения, см. Таблицу "Коды состояния фотокамеры".
+  }
+
+  optional group NAV = 5 { // Навигация
+    required sint32 LAT=1;//[4] Широта (1LSB = 0,0000001гр.)
+    required sint32 LON=2;//[4] Долгота (1LSB = 0,0000001гр.)
+    required uint32 GPSVel=3;//[2] Скорость по GPS (1LSB = 0.1км/ч)
+    required uint32 GPSDir=4;//[2] Направление (1LSB = 1гр.)
+    required uint32 GPSNSat=5;//[1] Количество спутников
+    required sint32 GPSAlt=6;//[2] Высота над уровнем моря (1LSB = 0.1м)
+  }
+
+  optional group UniDt = 6 { // Универсальные входы
+    optional sint32 UniVal0 = 1;//[4] Данные универсального входа 1
+    optional sint32 UniVal1 = 2;//[4] Данные универсального входа 2
+    optional sint32 UniVal2 = 3;//[4] Данные универсального входа 3
+    optional sint32 UniVal3 = 4;//[4] Данные универсального входа 4
+    optional sint32 UniVal4 = 5;//[4] Данные универсального входа 5
+    optional sint32 UniVal5 = 6;//[4] Данные универсального входа 6
+  }
+
+  optional group CanDt = 7 { // Данные шины CAN
+    optional uint32 SPN70 = 70;//[1] 00-номер конфигурационного бита
+    optional uint32 SPN91 = 91;//[1] 01-номер конфигурационного бита
+    optional uint32 SPN100 = 100;//[1] 02-номер конфигурационного бита
+    optional uint32 SPN110 = 110;//[1] 03-номер конфигурационного бита
+    optional uint32 SPN174 = 174;//[1] 04-номер конфигурационного бита
+    optional uint32 SPN175 = 175;//[2] 05-номер конфигурационного бита
+    optional uint32 SPN182 = 182;//[4] 06-номер конфигурационного бита
+    optional uint32 SPN184 = 184;//[2] 07-номер конфигурационного бита
+    optional uint32 SPN190 = 190;//[2] 08-номер конфигурационного бита
+    optional uint32 SPN244 = 244;//[4] 09-номер конфигурационного бита
+    optional uint32 SPN245 = 245;//[4] 10-номер конфигурационного бита
+    optional uint32 SPN247 = 247;//[4] 11-номер конфигурационного бита
+    optional uint32 SPN250 = 250;//[4] 12-номер конфигурационного бита
+    optional uint32 SPN521 = 521;//[1] 13-номер конфигурационного бита
+    optional uint32 SPN522 = 522;//[1] 14-номер конфигурационного бита
+    optional uint32 SPN527 = 527;//[1] 15-номер конфигурационного бита
+    repeated uint32 SPN582 = 582 [packed=true]; /*PGN 65258 */  //[2*8] 16-номер конфигурационного бита
+    optional uint32 SPN597 = 597;//[1] 17-номер конфигурационного бита
+    optional uint32 SPN598 = 598;//[1] 18-номер конфигурационного бита
+    optional uint32 SPN914 = 914;//[2] 19-номер конфигурационного бита
+    optional uint32 SPN916 = 916;//[1] 20-номер конфигурационного бита
+    repeated uint32 SPN928 = 928 [packed=true]; /*PGN 65258 */ //[1*8] 21-номер конфигурационного бита
+    optional uint32 SPN1624 = 1624;//[2] 22-номер конфигурационного бита
+    optional uint32 SPN1821 = 1821;//[1] 23-номер конфигурационного бита
+    optional uint32 SPN1856 = 1856;//[1] 24-номер конфигурационного бита
+  }
+
+  optional group LLSDt = 8 { // Топливные датчики LLS/LLS-AF
+    optional sint32 TLLS1 = 1; //[1] температура (1LSB = 1гр.C)
+    optional uint32 CLLS1 = 2; //[2] уровень
+    optional sint32 FLLS1 = 3; //[1] код состояния см. Таблицу "Коды состояния LLS".
+
+    optional sint32 TLLS2 = 4; //[1] температура (1LSB = 1гр.C)
+    optional uint32 CLLS2 = 5; //[4] уровень
+    optional sint32 FLLS2 = 6; //[1] код состояния см. Таблицу "Коды состояния LLS".
+
+    optional sint32 TLLS3 = 7; //[1] температура (1LSB = 1гр.C)
+    optional uint32 CLLS3 = 8; //[4] уровень
+    optional sint32 FLLS3 = 9; //[1] код состояния см. Таблицу "Коды состояния LLS".
+
+    optional sint32 TLLS4 = 10; //[1] температура (1LSB = 1гр.C)
+    optional uint32 CLLS4 = 11; //[4] уровень
+    optional sint32 FLLS4 = 12; //[1] код состояния см. Таблицу "Коды состояния LLS".
+
+    optional sint32 TLLS5 = 13; //[1] температура (1LSB = 1гр.C)
+    optional uint32 CLLS5 = 14; //[4] уровень
+    optional sint32 FLLS5 = 15; //[1] код состояния см. "Коды состояния LLS".
+
+    optional sint32 TLLS6 = 16; //[1] температура (1LSB = 1гр.C)
+    optional uint32 CLLS6 = 17; //[4] уровень
+    optional sint32 FLLS6 = 18; //[1] код состояния см. "Коды состояния LLS".
+  }
+
+  optional group Other = 9 { // прочее оборудование
+    optional group OneWire = 1 { // Температурные датчики 1-wire Присутствуют только температуры с настроенных датчиков
+        optional sint32 OneWire1 = 1; //[1] температура c датчика 1
+        optional sint32 OneWire2 = 2; //[1] температура c датчика 2
+        optional sint32 OneWire3 = 3; //[1] температура c датчика 3
+        optional sint32 OneWire4 = 4; //[1] температура c датчика 4
+        optional sint32 OneWire5 = 5; //[1] температура c датчика 5
+        optional sint32 OneWire6 = 6; //[1] температура c датчика 6
+        optional sint32 OneWire7 = 7; //[1] температура c датчика 7
+        optional sint32 OneWire8 = 8; //[1] температура c датчика 8
+    }
+    optional group Pherip = 2 { // Периферия кладутся в архив данные только с подключенных и настроенных устройств
+      optional uint32 PassengerIn= 1; //[1] Количество вошедших пассажиров
+      optional uint32 PassengerOut= 2; //[1] Количество вышедших пассажиров
+      optional uint32 DoorMask= 3; //[1] Маска дверей датчика пасажиропотока
+      optional uint32 DriverStatus= 4; //[1] Статус водителя
+      optional bytes TPMS = 5; //[68] Система контроля давления воздуха в шинах PressurePro, всего возможно 34 датчика. Массив из 34 структур по 2 байта.
+    }
+  }
+  optional group LOG = 16 {
+    repeated string Debug = 1; //[1024] Отладочный лог
+  }
+}
