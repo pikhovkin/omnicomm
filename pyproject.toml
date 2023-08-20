@@ -52,7 +52,6 @@ path = "omnicomm/__init__.py"
 [tool.hatch.build]
 include = [
   "omnicomm/",
-  "omnicomm/proto/*",
   "README.md",
   "LICENSE",
   "pyproject.toml",
