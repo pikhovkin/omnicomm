@@ -17,12 +17,15 @@ class Registry:
         if isinstance(item, int):
             return self._registry.get(item, None)
         elif isinstance(item, tuple):
-            if len(item) == 3:
-                reg_id, fw, cmd = item
-                return self._registry.get(item, self._registry.get((reg_id, cmd), self._registry.get(cmd, None)))
-            elif len(item) == 2:
-                reg_id, cmd = item
-                return self._registry.get(item, self._registry.get(cmd, None))
+            key = tuple(filter(bool, item))
+            if len(key) == 3:
+                reg_id, fw, cmd = key
+                return self._registry.get(key, None) or self._registry.get((reg_id, cmd), None) or self._registry.get(cmd, None)
+            elif len(key) == 2:
+                reg_id, cmd = key
+                return self._registry.get(key, None) or self._registry.get(cmd, None)
+            elif len(key) == 1:
+                return self._registry.get(key[0], None)
 
 
 registry = Registry()

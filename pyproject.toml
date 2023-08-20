@@ -38,7 +38,7 @@ classifiers = [
 ]
 dependencies = [
   "libscrc",
-  "protobuf",
+  "protobuf==3.20.3",
 ]
 
 [project.urls]

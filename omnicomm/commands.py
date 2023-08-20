@@ -49,6 +49,10 @@ class Cmd80(BaseCommand):
     format: str = 'II'
 
     @classmethod
+    def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:
+        return (value.get('reg_id', 0) or 0, value.get('firmware', 0) or 0,)
+
+    @classmethod
     def to_dict(cls, value: tuple[int, ...], conf: dict) -> dict:
         return dict(reg_id=value[0], firmware=value[1])
 
@@ -68,7 +72,11 @@ class Cmd85(BaseCommand):
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:
-        return (value.get('rec_num', 0) or 0,)
+        return (value.get('rec_id', 0) or 0,)
+
+    @classmethod
+    def to_dict(cls, value: tuple[int, ...], conf: dict) -> dict:
+        return dict(rec_id=value[0])
 
 
 class Cmd86(BaseCommand):
@@ -87,11 +95,21 @@ class Cmd86(BaseCommand):
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:
-        raise NotImplementedError
+        return (value['num_rec'], value['omnicomm_time'], value['priority'],)
 
     @classmethod
     def pack(cls, value: dict, conf: dict | None = None) -> bytes:
-        return struct.pack(f'<{cls.format}', *cls.from_dict(value, conf or {}))
+        reg_id, fw = value.get('reg_id', 0), value.get('firmware', 0)
+        proto_class: type[Message] = registry[(reg_id, fw, cls.id)]
+
+        data = bytearray()
+        msgs = value.get('msgs', [])
+        for msg in msgs:
+            _msg = cls.pack_protobuf(msg, proto_class)
+            length = len(_msg)
+            data += struct.pack('<H', length)
+            data += _msg
+        return struct.pack(f'<{cls.format}', *cls.from_dict(value, conf or {})) + data
 
     @classmethod
     def to_dict(cls, value: tuple[int, ...], conf: dict) -> dict:
@@ -104,7 +122,7 @@ class Cmd86(BaseCommand):
 
         data = data[9:]
 
-        reg_id, fw =  conf.get('reg_id'), conf.get('firmware')
+        reg_id, fw =  (conf or {}).get('reg_id', 0), (conf or {}).get('firmware', 0)
         proto_class: type[Message] = registry[(reg_id, fw, cls.id)]
 
         msgs = []
@@ -124,7 +142,7 @@ class Cmd87(BaseCommand):
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:
-        return (value.get('rec_num', 0) or 0,)
+        return (value.get('rec_id', 0) or 0,)
 
 
 class Cmd88(BaseCommand):
@@ -133,7 +151,7 @@ class Cmd88(BaseCommand):
 
     @classmethod
     def to_dict(cls, value: tuple[int, ...], conf: dict) -> dict:
-        return dict(rec_num=value[0])
+        return dict(rec_id=value[0])
 
 
 # class Cmd89(BaseCommand):
