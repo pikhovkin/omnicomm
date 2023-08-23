@@ -13,8 +13,14 @@ class BaseCommand:
     id: int = 0
     format: str = ''
 
+    BASE_TIME = 1230768000
+
     @classmethod
-    def pack_protobuf(cls, value: dict, proto_class: type[Message]):
+    def to_unix_time(cls, omnicomm_time: int) -> int:
+        return cls.BASE_TIME + omnicomm_time
+
+    @classmethod
+    def pack_protobuf(cls, value: dict, proto_class: type[Message]) -> bytes:
         proto_instance: type[Message] = ParseDict(value, proto_class())
         return proto_instance.SerializeToString()
 
@@ -83,19 +89,18 @@ class Cmd86(BaseCommand):
     id: int = 0x86
     format: str = 'IIB'
 
-    # BASE_TIME = 1230768000
-    #
-    # @classmethod
-    # def to_unix_time(cls, omnicomm_time):
-    #     return cls.BASE_TIME + omnicomm_time
-    #
     # @classmethod
     # def to_datetime(cls, omnicomm_time):
     #     return datetime(*tuple(time.gmtime(cls.to_unix_time(omnicomm_time)))[:6])
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:
-        return (value['num_rec'], value['omnicomm_time'], value['priority'],)
+        omnicomm_time = value.get('omnicomm_time', 0)
+        if not omnicomm_time:
+            omnicomm_time = value.get('unix_time', 0) - cls.BASE_TIME
+            if omnicomm_time < 0:
+                omnicomm_time = 0
+        return (value['num_rec'], omnicomm_time, value['priority'],)
 
     @classmethod
     def pack(cls, value: dict, conf: dict | None = None) -> bytes:
@@ -113,7 +118,7 @@ class Cmd86(BaseCommand):
 
     @classmethod
     def to_dict(cls, value: tuple[int, ...], conf: dict) -> dict:
-        return dict(num_rec=value[0], omnicomm_time=value[1], priority=value[2])
+        return dict(num_rec=value[0], omnicomm_time=value[1], priority=value[2], unix_time=cls.to_unix_time(value[1]))
 
     @classmethod
     def unpack(cls, data: bytes, conf: dict | None = None) -> dict:
