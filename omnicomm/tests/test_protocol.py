@@ -9,13 +9,17 @@ class ProtocolTest(TestCase):
 
     def test_80(self):
         value = {'reg_id': 202000013, 'firmware': 114}
-        data = protocol.RegistrarProtocol.pack(commands.Cmd80, value)
-        self.assertTrue(protocol.ServerProtocol.unpack(data)[0] == value)
+        data = protocol.RegistrarProtocol.pack(commands.Cmd80(value))
+        cmd, remain = protocol.ServerProtocol.unpack(data)
+        self.assertTrue(cmd.id == commands.Cmd80.id)
+        self.assertTrue(cmd.value == value)
 
     def test_85(self):
         value = {'rec_id': 62311}
-        data = protocol.ServerProtocol.pack(commands.Cmd85, value)
-        self.assertTrue(protocol.RegistrarProtocol.unpack(data)[0] == value)
+        data = protocol.ServerProtocol.pack(commands.Cmd85(value))
+        cmd, remain = protocol.RegistrarProtocol.unpack(data)
+        self.assertTrue(cmd.id == commands.Cmd85.id)
+        self.assertTrue(cmd.value == value)
 
     def test_86(self):
         value = {
@@ -46,5 +50,7 @@ class ProtocolTest(TestCase):
                 },
             ],
         }
-        data = protocol.ServerProtocol.pack(commands.Cmd86, value)
-        self.assertTrue(protocol.RegistrarProtocol.unpack(data)[0] == value)
+        data = protocol.ServerProtocol.pack(commands.Cmd86(value))
+        cmd, remain = protocol.RegistrarProtocol.unpack(data)
+        self.assertTrue(cmd.id == commands.Cmd86.id)
+        self.assertTrue(cmd.value == value)

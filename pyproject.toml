@@ -67,8 +67,8 @@ dependencies = [
   "pytest",
 ]
 [tool.hatch.envs.default.scripts]
-test = "pytest {args:tests}"
-test-cov = "coverage run -m pytest {args:tests}"
+test = "pytest {args:omnicomm/tests}"
+test-cov = "coverage run -m pytest {args:omnicomm/tests}"
 cov-report = [
   "- coverage combine",
   "coverage report",
@@ -89,14 +89,15 @@ dependencies = [
   "ruff>=0.0.243",
 ]
 [tool.hatch.envs.lint.scripts]
-typing = "mypy --install-types --non-interactive {args:omnicomm tests}"
+typing = "mypy --install-types --non-interactive {args:omnicomm}"
 style = [
-  "ruff {args:.}",
-  "black --check --diff {args:.}",
+  "isort {args:omnicomm}",
+  "ruff {args:omnicomm}",
+  "black --check --diff {args:omnicomm}",
 ]
 fmt = [
-  "black {args:.}",
-  "ruff --fix {args:.}",
+  "black {args:omnicomm}",
+  "ruff --fix {args:omnicomm}",
   "style",
 ]
 all = [
@@ -104,12 +105,22 @@ all = [
   "typing",
 ]
 
+[tool.mypy]
+exclude = [
+  'omnicomm/proto',
+]
+follow_imports = 'skip'
+
 [tool.black]
 target-version = ["py37"]
 line-length = 120
 skip-string-normalization = true
+extend-exclude = 'omnicomm/proto'
 
 [tool.ruff]
+src = [
+  'omnicomm',
+]
 target-version = "py37"
 line-length = 120
 select = [
@@ -122,7 +133,7 @@ select = [
   "EM",
   "F",
   "FBT",
-  "I",
+#  "I",
   "ICN",
   "ISC",
   "N",
@@ -140,6 +151,7 @@ select = [
   "YTT",
 ]
 ignore = [
+  'Q000', 'C408', 'T201',
   # Allow non-abstract empty methods in abstract base classes
   "B027",
   # Allow boolean positional values in function calls, like `dict.get(... True)`
@@ -153,6 +165,9 @@ unfixable = [
   # Don't touch unused imports
   "F401",
 ]
+extend-exclude = [
+  "omnicomm/proto"
+]
 
 [tool.ruff.isort]
 known-first-party = ["omnicomm"]
@@ -165,7 +180,7 @@ ban-relative-imports = "all"
 "tests/**/*" = ["PLR2004", "S101", "TID252"]
 
 [tool.coverage.run]
-source_pkgs = ["omnicomm", "tests"]
+source_pkgs = ["omnicomm", "omnicomm.tests"]
 branch = true
 parallel = true
 omit = [

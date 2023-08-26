@@ -1,5 +1,5 @@
-from importlib import import_module
 import sys
+from importlib import import_module
 
 
 def cached_import(module_path, class_name):
@@ -26,7 +26,5 @@ def import_string(dotted_path):
     try:
         return cached_import(module_path, class_name)
     except AttributeError as err:
-        raise ImportError(
-            'Module "%s" does not define a "%s" attribute/class'
-            % (module_path, class_name)
-        ) from err
+        msg = f'Module "{module_path}" does not define a "{class_name}" attribute/class'
+        raise ImportError(msg) from err

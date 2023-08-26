@@ -1,14 +1,18 @@
-class OmnicommException(Exception):
+class OmnicommError(Exception):
     ...
 
 
-class CommandAlreadyExists(OmnicommException):
+class CommandAlreadyExistsError(OmnicommError):
     ...
 
 
-class CRCDoesNotMatch(OmnicommException):
+class CRCDoesNotMatchError(OmnicommError):
     ...
 
 
-class FrameMarkerDoesNotExist(OmnicommException):
+class FrameMarkerDoesNotExistError(OmnicommError):
+    ...
+
+
+class ProtoDoesNotExistError(OmnicommError):
     ...

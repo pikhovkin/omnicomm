@@ -2,13 +2,15 @@ import struct
 
 import libscrc
 
-from . import settings
-from .commands import commands
-from .exceptions import CRCDoesNotMatch, FrameMarkerDoesNotExist
-from .commands import Command
-from .types import RegFwCmd
-from .utils import import_string
-from .registry import reg_fw_cmd
+from omnicomm import settings
+from omnicomm.commands import BaseCommand, commands
+from omnicomm.exceptions import (CRCDoesNotMatchError,
+                                 FrameMarkerDoesNotExistError)
+from omnicomm.registry import reg_fw_cmd
+from omnicomm.types import RegFwCmd
+from omnicomm.utils import import_string
+
+FRAME_MARKER = 0xc0
 
 
 class Protocol:
@@ -30,12 +32,12 @@ class Protocol:
 
     @classmethod
     def make_crc(cls, cmd_id: int, length, data: bytes) -> int:
-        crc16 = libscrc.xmodem(struct.pack(f'<BH', cmd_id, length) + data, 0xffff)
+        crc16 = libscrc.xmodem(struct.pack('<BH', cmd_id, length) + data, 0xffff)
         return crc16
 
     @classmethod
-    def pack(cls, cmd: Command, value: dict) -> bytes:
-        data = cmd.pack(value)
+    def pack(cls, cmd: BaseCommand) -> bytes:
+        data = cmd.pack()
         length = len(data)
         crc = cls.make_crc(cmd.id, length, data)
         data = struct.pack('<B', cmd.id) + struct.pack('<H', length) + data
@@ -43,9 +45,10 @@ class Protocol:
         return cls.encode(data)
 
     @classmethod
-    def unpack(cls, data: bytes) -> tuple[dict, bytes]:
-        if data[0] != 0xc0:
-            raise FrameMarkerDoesNotExist('Frame marker does not exist')
+    def unpack(cls, data: bytes) -> tuple[BaseCommand, bytes]:
+        if data[0] != FRAME_MARKER:
+            msg = 'Frame marker does not exist'
+            raise FrameMarkerDoesNotExistError(msg)
 
         data = cls.decode(data)
 
@@ -56,12 +59,13 @@ class Protocol:
 
         crc = cls.make_crc(cmd_num, length, original_data)
         if original_crc != crc:
-            raise CRCDoesNotMatch('CRC does not match')
+            msg = 'CRC does not match'
+            raise CRCDoesNotMatchError(msg)
 
         remain = data[5 + length:]
 
-        value = commands[cmd_num].unpack(original_data)
-        return value, remain
+        cmd = commands[cmd_num].unpack(original_data)
+        return cmd, remain
 
     @classmethod
     def register_proto(cls, item: RegFwCmd, module: str) -> None:
