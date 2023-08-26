@@ -15,11 +15,11 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='profi2_optim2_lite2.proto',
-  package='',
+  package='profi2_optim2_lite2',
   syntax='proto2',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19profi2_optim2_lite2.proto\"\xe4\x0e\n\x06RecReg\x12\x0f\n\x03mID\x18\x01 \x03(\rB\x02\x10\x01\x12 \n\x07general\x18\x02 \x01(\n2\x0f.RecReg.General\x12\x1c\n\x05photo\x18\x04 \x01(\n2\r.RecReg.Photo\x12\x18\n\x03nav\x18\x05 \x01(\n2\x0b.RecReg.NAV\x12\x1c\n\x05unidt\x18\x06 \x01(\n2\r.RecReg.UniDt\x12\x1c\n\x05\x63\x61ndt\x18\x07 \x01(\n2\r.RecReg.CanDt\x12\x1c\n\x05llsdt\x18\x08 \x01(\n2\r.RecReg.LLSDt\x12\x1c\n\x05other\x18\t \x01(\n2\r.RecReg.Other\x12\x18\n\x03log\x18\x10 \x01(\n2\x0b.RecReg.LOG\x1a\xdc\x01\n\x07General\x12\x0c\n\x04Time\x18\x01 \x01(\r\x12\r\n\x05IDFAS\x18\x02 \x01(\r\x12\r\n\x05IDDrv\x18\x03 \x01(\x0c\x12\x0b\n\x03\x46LG\x18\x04 \x01(\r\x12\x0f\n\x07Mileage\x18\x05 \x01(\r\x12\x0c\n\x04VImp\x18\x06 \x01(\r\x12\x0c\n\x04TImp\x18\x07 \x01(\r\x12\x0e\n\x06Uboard\x18\x08 \x01(\r\x12\x0f\n\x07\x42\x61tLife\x18\t \x01(\r\x12\x0e\n\x06SumAcc\x18\n \x01(\x11\x12\r\n\x05Phone\x18\x0b \x01(\x0c\x12\r\n\x05\x41mtrX\x18\x0c \x01(\x11\x12\r\n\x05\x41mtrY\x18\r \x01(\x11\x12\r\n\x05\x41mtrZ\x18\x0e \x01(\x11\x1ah\n\x05Photo\x12\x0e\n\x06POSBLK\x18\x01 \x01(\r\x12\x0f\n\x07SZPHOTO\x18\x02 \x01(\r\x12\x0f\n\x07SIZEBLK\x18\x03 \x01(\r\x12\x0e\n\x06IMGDAT\x18\x04 \x01(\x0c\x12\x0c\n\x04IDPH\x18\x05 \x01(\r\x12\x0f\n\x07IMGSTAT\x18\x06 \x01(\r\x1a`\n\x03NAV\x12\x0b\n\x03LAT\x18\x01 \x02(\x11\x12\x0b\n\x03LON\x18\x02 \x02(\x11\x12\x0e\n\x06GPSVel\x18\x03 \x02(\r\x12\x0e\n\x06GPSDir\x18\x04 \x02(\r\x12\x0f\n\x07GPSNSat\x18\x05 \x02(\r\x12\x0e\n\x06GPSAlt\x18\x06 \x02(\x11\x1am\n\x05UniDt\x12\x0f\n\x07UniVal0\x18\x01 \x01(\x11\x12\x0f\n\x07UniVal1\x18\x02 \x01(\x11\x12\x0f\n\x07UniVal2\x18\x03 \x01(\x11\x12\x0f\n\x07UniVal3\x18\x04 \x01(\x11\x12\x0f\n\x07UniVal4\x18\x05 \x01(\x11\x12\x0f\n\x07UniVal5\x18\x06 \x01(\x11\x1a\xb5\x03\n\x05\x43\x61nDt\x12\r\n\x05SPN70\x18\x46 \x01(\r\x12\r\n\x05SPN91\x18[ \x01(\r\x12\x0e\n\x06SPN100\x18\x64 \x01(\r\x12\x0e\n\x06SPN110\x18n \x01(\r\x12\x0f\n\x06SPN174\x18\xae\x01 \x01(\r\x12\x0f\n\x06SPN175\x18\xaf\x01 \x01(\r\x12\x0f\n\x06SPN182\x18\xb6\x01 \x01(\r\x12\x0f\n\x06SPN184\x18\xb8\x01 \x01(\r\x12\x0f\n\x06SPN190\x18\xbe\x01 \x01(\r\x12\x0f\n\x06SPN244\x18\xf4\x01 \x01(\r\x12\x0f\n\x06SPN245\x18\xf5\x01 \x01(\r\x12\x0f\n\x06SPN247\x18\xf7\x01 \x01(\r\x12\x0f\n\x06SPN250\x18\xfa\x01 \x01(\r\x12\x0f\n\x06SPN521\x18\x89\x04 \x01(\r\x12\x0f\n\x06SPN522\x18\x8a\x04 \x01(\r\x12\x0f\n\x06SPN527\x18\x8f\x04 \x01(\r\x12\x13\n\x06SPN582\x18\xc6\x04 \x03(\rB\x02\x10\x01\x12\x0f\n\x06SPN597\x18\xd5\x04 \x01(\r\x12\x0f\n\x06SPN598\x18\xd6\x04 \x01(\r\x12\x0f\n\x06SPN914\x18\x92\x07 \x01(\r\x12\x0f\n\x06SPN916\x18\x94\x07 \x01(\r\x12\x13\n\x06SPN928\x18\xa0\x07 \x03(\rB\x02\x10\x01\x12\x10\n\x07SPN1624\x18\xd8\x0c \x01(\r\x12\x10\n\x07SPN1821\x18\x9d\x0e \x01(\r\x12\x10\n\x07SPN1856\x18\xc0\x0e \x01(\r\x1a\x95\x02\n\x05LLSDt\x12\r\n\x05TLLS1\x18\x01 \x01(\x11\x12\r\n\x05\x43LLS1\x18\x02 \x01(\r\x12\r\n\x05\x46LLS1\x18\x03 \x01(\x11\x12\r\n\x05TLLS2\x18\x04 \x01(\x11\x12\r\n\x05\x43LLS2\x18\x05 \x01(\r\x12\r\n\x05\x46LLS2\x18\x06 \x01(\x11\x12\r\n\x05TLLS3\x18\x07 \x01(\x11\x12\r\n\x05\x43LLS3\x18\x08 \x01(\r\x12\r\n\x05\x46LLS3\x18\t \x01(\x11\x12\r\n\x05TLLS4\x18\n \x01(\x11\x12\r\n\x05\x43LLS4\x18\x0b \x01(\r\x12\r\n\x05\x46LLS4\x18\x0c \x01(\x11\x12\r\n\x05TLLS5\x18\r \x01(\x11\x12\r\n\x05\x43LLS5\x18\x0e \x01(\r\x12\r\n\x05\x46LLS5\x18\x0f \x01(\x11\x12\r\n\x05TLLS6\x18\x10 \x01(\x11\x12\r\n\x05\x43LLS6\x18\x11 \x01(\r\x12\r\n\x05\x46LLS6\x18\x12 \x01(\x11\x1a\xdc\x02\n\x05Other\x12&\n\x07onewire\x18\x01 \x01(\n2\x15.RecReg.Other.OneWire\x12$\n\x06pherip\x18\x02 \x01(\n2\x14.RecReg.Other.Pherip\x1a\x99\x01\n\x07OneWire\x12\x10\n\x08OneWire1\x18\x01 \x01(\x11\x12\x10\n\x08OneWire2\x18\x02 \x01(\x11\x12\x10\n\x08OneWire3\x18\x03 \x01(\x11\x12\x10\n\x08OneWire4\x18\x04 \x01(\x11\x12\x10\n\x08OneWire5\x18\x05 \x01(\x11\x12\x10\n\x08OneWire6\x18\x06 \x01(\x11\x12\x10\n\x08OneWire7\x18\x07 \x01(\x11\x12\x10\n\x08OneWire8\x18\x08 \x01(\x11\x1ai\n\x06Pherip\x12\x13\n\x0bPassengerIn\x18\x01 \x01(\r\x12\x14\n\x0cPassengerOut\x18\x02 \x01(\r\x12\x10\n\x08\x44oorMask\x18\x03 \x01(\r\x12\x14\n\x0c\x44riverStatus\x18\x04 \x01(\r\x12\x0c\n\x04TPMS\x18\x05 \x01(\x0c\x1a\x14\n\x03LOG\x12\r\n\x05\x44\x65\x62ug\x18\x01 \x03(\t'
+  serialized_pb=b'\n\x19profi2_optim2_lite2.proto\x12\x13profi2_optim2_lite2\"\xac\x10\n\x06RecReg\x12\x0f\n\x03mID\x18\x01 \x03(\rB\x02\x10\x01\x12\x34\n\x07general\x18\x02 \x01(\n2#.profi2_optim2_lite2.RecReg.General\x12\x30\n\x05photo\x18\x04 \x01(\n2!.profi2_optim2_lite2.RecReg.Photo\x12,\n\x03nav\x18\x05 \x01(\n2\x1f.profi2_optim2_lite2.RecReg.NAV\x12\x30\n\x05unidt\x18\x06 \x01(\n2!.profi2_optim2_lite2.RecReg.UniDt\x12\x30\n\x05\x63\x61ndt\x18\x07 \x01(\n2!.profi2_optim2_lite2.RecReg.CanDt\x12\x30\n\x05llsdt\x18\x08 \x01(\n2!.profi2_optim2_lite2.RecReg.LLSDt\x12\x30\n\x05other\x18\t \x01(\n2!.profi2_optim2_lite2.RecReg.Other\x12,\n\x03log\x18\x10 \x01(\n2\x1f.profi2_optim2_lite2.RecReg.LOG\x1a\xdc\x01\n\x07General\x12\x0c\n\x04Time\x18\x01 \x01(\r\x12\r\n\x05IDFAS\x18\x02 \x01(\r\x12\r\n\x05IDDrv\x18\x03 \x01(\x0c\x12\x0b\n\x03\x46LG\x18\x04 \x01(\r\x12\x0f\n\x07Mileage\x18\x05 \x01(\r\x12\x0c\n\x04VImp\x18\x06 \x01(\r\x12\x0c\n\x04TImp\x18\x07 \x01(\r\x12\x0e\n\x06Uboard\x18\x08 \x01(\r\x12\x0f\n\x07\x42\x61tLife\x18\t \x01(\r\x12\x0e\n\x06SumAcc\x18\n \x01(\x11\x12\r\n\x05Phone\x18\x0b \x01(\x0c\x12\r\n\x05\x41mtrX\x18\x0c \x01(\x11\x12\r\n\x05\x41mtrY\x18\r \x01(\x11\x12\r\n\x05\x41mtrZ\x18\x0e \x01(\x11\x1ah\n\x05Photo\x12\x0e\n\x06POSBLK\x18\x01 \x01(\r\x12\x0f\n\x07SZPHOTO\x18\x02 \x01(\r\x12\x0f\n\x07SIZEBLK\x18\x03 \x01(\r\x12\x0e\n\x06IMGDAT\x18\x04 \x01(\x0c\x12\x0c\n\x04IDPH\x18\x05 \x01(\r\x12\x0f\n\x07IMGSTAT\x18\x06 \x01(\r\x1a`\n\x03NAV\x12\x0b\n\x03LAT\x18\x01 \x02(\x11\x12\x0b\n\x03LON\x18\x02 \x02(\x11\x12\x0e\n\x06GPSVel\x18\x03 \x02(\r\x12\x0e\n\x06GPSDir\x18\x04 \x02(\r\x12\x0f\n\x07GPSNSat\x18\x05 \x02(\r\x12\x0e\n\x06GPSAlt\x18\x06 \x02(\x11\x1am\n\x05UniDt\x12\x0f\n\x07UniVal0\x18\x01 \x01(\x11\x12\x0f\n\x07UniVal1\x18\x02 \x01(\x11\x12\x0f\n\x07UniVal2\x18\x03 \x01(\x11\x12\x0f\n\x07UniVal3\x18\x04 \x01(\x11\x12\x0f\n\x07UniVal4\x18\x05 \x01(\x11\x12\x0f\n\x07UniVal5\x18\x06 \x01(\x11\x1a\xb5\x03\n\x05\x43\x61nDt\x12\r\n\x05SPN70\x18\x46 \x01(\r\x12\r\n\x05SPN91\x18[ \x01(\r\x12\x0e\n\x06SPN100\x18\x64 \x01(\r\x12\x0e\n\x06SPN110\x18n \x01(\r\x12\x0f\n\x06SPN174\x18\xae\x01 \x01(\r\x12\x0f\n\x06SPN175\x18\xaf\x01 \x01(\r\x12\x0f\n\x06SPN182\x18\xb6\x01 \x01(\r\x12\x0f\n\x06SPN184\x18\xb8\x01 \x01(\r\x12\x0f\n\x06SPN190\x18\xbe\x01 \x01(\r\x12\x0f\n\x06SPN244\x18\xf4\x01 \x01(\r\x12\x0f\n\x06SPN245\x18\xf5\x01 \x01(\r\x12\x0f\n\x06SPN247\x18\xf7\x01 \x01(\r\x12\x0f\n\x06SPN250\x18\xfa\x01 \x01(\r\x12\x0f\n\x06SPN521\x18\x89\x04 \x01(\r\x12\x0f\n\x06SPN522\x18\x8a\x04 \x01(\r\x12\x0f\n\x06SPN527\x18\x8f\x04 \x01(\r\x12\x13\n\x06SPN582\x18\xc6\x04 \x03(\rB\x02\x10\x01\x12\x0f\n\x06SPN597\x18\xd5\x04 \x01(\r\x12\x0f\n\x06SPN598\x18\xd6\x04 \x01(\r\x12\x0f\n\x06SPN914\x18\x92\x07 \x01(\r\x12\x0f\n\x06SPN916\x18\x94\x07 \x01(\r\x12\x13\n\x06SPN928\x18\xa0\x07 \x03(\rB\x02\x10\x01\x12\x10\n\x07SPN1624\x18\xd8\x0c \x01(\r\x12\x10\n\x07SPN1821\x18\x9d\x0e \x01(\r\x12\x10\n\x07SPN1856\x18\xc0\x0e \x01(\r\x1a\x95\x02\n\x05LLSDt\x12\r\n\x05TLLS1\x18\x01 \x01(\x11\x12\r\n\x05\x43LLS1\x18\x02 \x01(\r\x12\r\n\x05\x46LLS1\x18\x03 \x01(\x11\x12\r\n\x05TLLS2\x18\x04 \x01(\x11\x12\r\n\x05\x43LLS2\x18\x05 \x01(\r\x12\r\n\x05\x46LLS2\x18\x06 \x01(\x11\x12\r\n\x05TLLS3\x18\x07 \x01(\x11\x12\r\n\x05\x43LLS3\x18\x08 \x01(\r\x12\r\n\x05\x46LLS3\x18\t \x01(\x11\x12\r\n\x05TLLS4\x18\n \x01(\x11\x12\r\n\x05\x43LLS4\x18\x0b \x01(\r\x12\r\n\x05\x46LLS4\x18\x0c \x01(\x11\x12\r\n\x05TLLS5\x18\r \x01(\x11\x12\r\n\x05\x43LLS5\x18\x0e \x01(\r\x12\r\n\x05\x46LLS5\x18\x0f \x01(\x11\x12\r\n\x05TLLS6\x18\x10 \x01(\x11\x12\r\n\x05\x43LLS6\x18\x11 \x01(\r\x12\r\n\x05\x46LLS6\x18\x12 \x01(\x11\x1a\x84\x03\n\x05Other\x12:\n\x07onewire\x18\x01 \x01(\n2).profi2_optim2_lite2.RecReg.Other.OneWire\x12\x38\n\x06pherip\x18\x02 \x01(\n2(.profi2_optim2_lite2.RecReg.Other.Pherip\x1a\x99\x01\n\x07OneWire\x12\x10\n\x08OneWire1\x18\x01 \x01(\x11\x12\x10\n\x08OneWire2\x18\x02 \x01(\x11\x12\x10\n\x08OneWire3\x18\x03 \x01(\x11\x12\x10\n\x08OneWire4\x18\x04 \x01(\x11\x12\x10\n\x08OneWire5\x18\x05 \x01(\x11\x12\x10\n\x08OneWire6\x18\x06 \x01(\x11\x12\x10\n\x08OneWire7\x18\x07 \x01(\x11\x12\x10\n\x08OneWire8\x18\x08 \x01(\x11\x1ai\n\x06Pherip\x12\x13\n\x0bPassengerIn\x18\x01 \x01(\r\x12\x14\n\x0cPassengerOut\x18\x02 \x01(\r\x12\x10\n\x08\x44oorMask\x18\x03 \x01(\r\x12\x14\n\x0c\x44riverStatus\x18\x04 \x01(\r\x12\x0c\n\x04TPMS\x18\x05 \x01(\x0c\x1a\x14\n\x03LOG\x12\r\n\x05\x44\x65\x62ug\x18\x01 \x03(\t'
 )
 
 
@@ -27,105 +27,105 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _RECREG_GENERAL = _descriptor.Descriptor(
   name='General',
-  full_name='RecReg.General',
+  full_name='profi2_optim2_lite2.RecReg.General',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Time', full_name='RecReg.General.Time', index=0,
+      name='Time', full_name='profi2_optim2_lite2.RecReg.General.Time', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='IDFAS', full_name='RecReg.General.IDFAS', index=1,
+      name='IDFAS', full_name='profi2_optim2_lite2.RecReg.General.IDFAS', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='IDDrv', full_name='RecReg.General.IDDrv', index=2,
+      name='IDDrv', full_name='profi2_optim2_lite2.RecReg.General.IDDrv', index=2,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FLG', full_name='RecReg.General.FLG', index=3,
+      name='FLG', full_name='profi2_optim2_lite2.RecReg.General.FLG', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Mileage', full_name='RecReg.General.Mileage', index=4,
+      name='Mileage', full_name='profi2_optim2_lite2.RecReg.General.Mileage', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='VImp', full_name='RecReg.General.VImp', index=5,
+      name='VImp', full_name='profi2_optim2_lite2.RecReg.General.VImp', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TImp', full_name='RecReg.General.TImp', index=6,
+      name='TImp', full_name='profi2_optim2_lite2.RecReg.General.TImp', index=6,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Uboard', full_name='RecReg.General.Uboard', index=7,
+      name='Uboard', full_name='profi2_optim2_lite2.RecReg.General.Uboard', index=7,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='BatLife', full_name='RecReg.General.BatLife', index=8,
+      name='BatLife', full_name='profi2_optim2_lite2.RecReg.General.BatLife', index=8,
       number=9, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SumAcc', full_name='RecReg.General.SumAcc', index=9,
+      name='SumAcc', full_name='profi2_optim2_lite2.RecReg.General.SumAcc', index=9,
       number=10, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Phone', full_name='RecReg.General.Phone', index=10,
+      name='Phone', full_name='profi2_optim2_lite2.RecReg.General.Phone', index=10,
       number=11, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='AmtrX', full_name='RecReg.General.AmtrX', index=11,
+      name='AmtrX', full_name='profi2_optim2_lite2.RecReg.General.AmtrX', index=11,
       number=12, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='AmtrY', full_name='RecReg.General.AmtrY', index=12,
+      name='AmtrY', full_name='profi2_optim2_lite2.RecReg.General.AmtrY', index=12,
       number=13, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='AmtrZ', full_name='RecReg.General.AmtrZ', index=13,
+      name='AmtrZ', full_name='profi2_optim2_lite2.RecReg.General.AmtrZ', index=13,
       number=14, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -143,55 +143,55 @@ _RECREG_GENERAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=294,
-  serialized_end=514,
+  serialized_start=475,
+  serialized_end=695,
 )
 
 _RECREG_PHOTO = _descriptor.Descriptor(
   name='Photo',
-  full_name='RecReg.Photo',
+  full_name='profi2_optim2_lite2.RecReg.Photo',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='POSBLK', full_name='RecReg.Photo.POSBLK', index=0,
+      name='POSBLK', full_name='profi2_optim2_lite2.RecReg.Photo.POSBLK', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SZPHOTO', full_name='RecReg.Photo.SZPHOTO', index=1,
+      name='SZPHOTO', full_name='profi2_optim2_lite2.RecReg.Photo.SZPHOTO', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SIZEBLK', full_name='RecReg.Photo.SIZEBLK', index=2,
+      name='SIZEBLK', full_name='profi2_optim2_lite2.RecReg.Photo.SIZEBLK', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='IMGDAT', full_name='RecReg.Photo.IMGDAT', index=3,
+      name='IMGDAT', full_name='profi2_optim2_lite2.RecReg.Photo.IMGDAT', index=3,
       number=4, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='IDPH', full_name='RecReg.Photo.IDPH', index=4,
+      name='IDPH', full_name='profi2_optim2_lite2.RecReg.Photo.IDPH', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='IMGSTAT', full_name='RecReg.Photo.IMGSTAT', index=5,
+      name='IMGSTAT', full_name='profi2_optim2_lite2.RecReg.Photo.IMGSTAT', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -209,55 +209,55 @@ _RECREG_PHOTO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=516,
-  serialized_end=620,
+  serialized_start=697,
+  serialized_end=801,
 )
 
 _RECREG_NAV = _descriptor.Descriptor(
   name='NAV',
-  full_name='RecReg.NAV',
+  full_name='profi2_optim2_lite2.RecReg.NAV',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='LAT', full_name='RecReg.NAV.LAT', index=0,
+      name='LAT', full_name='profi2_optim2_lite2.RecReg.NAV.LAT', index=0,
       number=1, type=17, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='LON', full_name='RecReg.NAV.LON', index=1,
+      name='LON', full_name='profi2_optim2_lite2.RecReg.NAV.LON', index=1,
       number=2, type=17, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='GPSVel', full_name='RecReg.NAV.GPSVel', index=2,
+      name='GPSVel', full_name='profi2_optim2_lite2.RecReg.NAV.GPSVel', index=2,
       number=3, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='GPSDir', full_name='RecReg.NAV.GPSDir', index=3,
+      name='GPSDir', full_name='profi2_optim2_lite2.RecReg.NAV.GPSDir', index=3,
       number=4, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='GPSNSat', full_name='RecReg.NAV.GPSNSat', index=4,
+      name='GPSNSat', full_name='profi2_optim2_lite2.RecReg.NAV.GPSNSat', index=4,
       number=5, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='GPSAlt', full_name='RecReg.NAV.GPSAlt', index=5,
+      name='GPSAlt', full_name='profi2_optim2_lite2.RecReg.NAV.GPSAlt', index=5,
       number=6, type=17, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -275,55 +275,55 @@ _RECREG_NAV = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=622,
-  serialized_end=718,
+  serialized_start=803,
+  serialized_end=899,
 )
 
 _RECREG_UNIDT = _descriptor.Descriptor(
   name='UniDt',
-  full_name='RecReg.UniDt',
+  full_name='profi2_optim2_lite2.RecReg.UniDt',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='UniVal0', full_name='RecReg.UniDt.UniVal0', index=0,
+      name='UniVal0', full_name='profi2_optim2_lite2.RecReg.UniDt.UniVal0', index=0,
       number=1, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='UniVal1', full_name='RecReg.UniDt.UniVal1', index=1,
+      name='UniVal1', full_name='profi2_optim2_lite2.RecReg.UniDt.UniVal1', index=1,
       number=2, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='UniVal2', full_name='RecReg.UniDt.UniVal2', index=2,
+      name='UniVal2', full_name='profi2_optim2_lite2.RecReg.UniDt.UniVal2', index=2,
       number=3, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='UniVal3', full_name='RecReg.UniDt.UniVal3', index=3,
+      name='UniVal3', full_name='profi2_optim2_lite2.RecReg.UniDt.UniVal3', index=3,
       number=4, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='UniVal4', full_name='RecReg.UniDt.UniVal4', index=4,
+      name='UniVal4', full_name='profi2_optim2_lite2.RecReg.UniDt.UniVal4', index=4,
       number=5, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='UniVal5', full_name='RecReg.UniDt.UniVal5', index=5,
+      name='UniVal5', full_name='profi2_optim2_lite2.RecReg.UniDt.UniVal5', index=5,
       number=6, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -341,188 +341,188 @@ _RECREG_UNIDT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=720,
-  serialized_end=829,
+  serialized_start=901,
+  serialized_end=1010,
 )
 
 _RECREG_CANDT = _descriptor.Descriptor(
   name='CanDt',
-  full_name='RecReg.CanDt',
+  full_name='profi2_optim2_lite2.RecReg.CanDt',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='SPN70', full_name='RecReg.CanDt.SPN70', index=0,
+      name='SPN70', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN70', index=0,
       number=70, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN91', full_name='RecReg.CanDt.SPN91', index=1,
+      name='SPN91', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN91', index=1,
       number=91, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN100', full_name='RecReg.CanDt.SPN100', index=2,
+      name='SPN100', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN100', index=2,
       number=100, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN110', full_name='RecReg.CanDt.SPN110', index=3,
+      name='SPN110', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN110', index=3,
       number=110, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN174', full_name='RecReg.CanDt.SPN174', index=4,
+      name='SPN174', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN174', index=4,
       number=174, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN175', full_name='RecReg.CanDt.SPN175', index=5,
+      name='SPN175', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN175', index=5,
       number=175, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN182', full_name='RecReg.CanDt.SPN182', index=6,
+      name='SPN182', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN182', index=6,
       number=182, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN184', full_name='RecReg.CanDt.SPN184', index=7,
+      name='SPN184', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN184', index=7,
       number=184, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN190', full_name='RecReg.CanDt.SPN190', index=8,
+      name='SPN190', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN190', index=8,
       number=190, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN244', full_name='RecReg.CanDt.SPN244', index=9,
+      name='SPN244', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN244', index=9,
       number=244, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN245', full_name='RecReg.CanDt.SPN245', index=10,
+      name='SPN245', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN245', index=10,
       number=245, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN247', full_name='RecReg.CanDt.SPN247', index=11,
+      name='SPN247', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN247', index=11,
       number=247, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN250', full_name='RecReg.CanDt.SPN250', index=12,
+      name='SPN250', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN250', index=12,
       number=250, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN521', full_name='RecReg.CanDt.SPN521', index=13,
+      name='SPN521', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN521', index=13,
       number=521, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN522', full_name='RecReg.CanDt.SPN522', index=14,
+      name='SPN522', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN522', index=14,
       number=522, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN527', full_name='RecReg.CanDt.SPN527', index=15,
+      name='SPN527', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN527', index=15,
       number=527, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN582', full_name='RecReg.CanDt.SPN582', index=16,
+      name='SPN582', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN582', index=16,
       number=582, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN597', full_name='RecReg.CanDt.SPN597', index=17,
+      name='SPN597', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN597', index=17,
       number=597, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN598', full_name='RecReg.CanDt.SPN598', index=18,
+      name='SPN598', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN598', index=18,
       number=598, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN914', full_name='RecReg.CanDt.SPN914', index=19,
+      name='SPN914', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN914', index=19,
       number=914, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN916', full_name='RecReg.CanDt.SPN916', index=20,
+      name='SPN916', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN916', index=20,
       number=916, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN928', full_name='RecReg.CanDt.SPN928', index=21,
+      name='SPN928', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN928', index=21,
       number=928, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN1624', full_name='RecReg.CanDt.SPN1624', index=22,
+      name='SPN1624', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN1624', index=22,
       number=1624, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN1821', full_name='RecReg.CanDt.SPN1821', index=23,
+      name='SPN1821', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN1821', index=23,
       number=1821, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SPN1856', full_name='RecReg.CanDt.SPN1856', index=24,
+      name='SPN1856', full_name='profi2_optim2_lite2.RecReg.CanDt.SPN1856', index=24,
       number=1856, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -540,139 +540,139 @@ _RECREG_CANDT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=832,
-  serialized_end=1269,
+  serialized_start=1013,
+  serialized_end=1450,
 )
 
 _RECREG_LLSDT = _descriptor.Descriptor(
   name='LLSDt',
-  full_name='RecReg.LLSDt',
+  full_name='profi2_optim2_lite2.RecReg.LLSDt',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='TLLS1', full_name='RecReg.LLSDt.TLLS1', index=0,
+      name='TLLS1', full_name='profi2_optim2_lite2.RecReg.LLSDt.TLLS1', index=0,
       number=1, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='CLLS1', full_name='RecReg.LLSDt.CLLS1', index=1,
+      name='CLLS1', full_name='profi2_optim2_lite2.RecReg.LLSDt.CLLS1', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FLLS1', full_name='RecReg.LLSDt.FLLS1', index=2,
+      name='FLLS1', full_name='profi2_optim2_lite2.RecReg.LLSDt.FLLS1', index=2,
       number=3, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TLLS2', full_name='RecReg.LLSDt.TLLS2', index=3,
+      name='TLLS2', full_name='profi2_optim2_lite2.RecReg.LLSDt.TLLS2', index=3,
       number=4, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='CLLS2', full_name='RecReg.LLSDt.CLLS2', index=4,
+      name='CLLS2', full_name='profi2_optim2_lite2.RecReg.LLSDt.CLLS2', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FLLS2', full_name='RecReg.LLSDt.FLLS2', index=5,
+      name='FLLS2', full_name='profi2_optim2_lite2.RecReg.LLSDt.FLLS2', index=5,
       number=6, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TLLS3', full_name='RecReg.LLSDt.TLLS3', index=6,
+      name='TLLS3', full_name='profi2_optim2_lite2.RecReg.LLSDt.TLLS3', index=6,
       number=7, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='CLLS3', full_name='RecReg.LLSDt.CLLS3', index=7,
+      name='CLLS3', full_name='profi2_optim2_lite2.RecReg.LLSDt.CLLS3', index=7,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FLLS3', full_name='RecReg.LLSDt.FLLS3', index=8,
+      name='FLLS3', full_name='profi2_optim2_lite2.RecReg.LLSDt.FLLS3', index=8,
       number=9, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TLLS4', full_name='RecReg.LLSDt.TLLS4', index=9,
+      name='TLLS4', full_name='profi2_optim2_lite2.RecReg.LLSDt.TLLS4', index=9,
       number=10, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='CLLS4', full_name='RecReg.LLSDt.CLLS4', index=10,
+      name='CLLS4', full_name='profi2_optim2_lite2.RecReg.LLSDt.CLLS4', index=10,
       number=11, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FLLS4', full_name='RecReg.LLSDt.FLLS4', index=11,
+      name='FLLS4', full_name='profi2_optim2_lite2.RecReg.LLSDt.FLLS4', index=11,
       number=12, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TLLS5', full_name='RecReg.LLSDt.TLLS5', index=12,
+      name='TLLS5', full_name='profi2_optim2_lite2.RecReg.LLSDt.TLLS5', index=12,
       number=13, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='CLLS5', full_name='RecReg.LLSDt.CLLS5', index=13,
+      name='CLLS5', full_name='profi2_optim2_lite2.RecReg.LLSDt.CLLS5', index=13,
       number=14, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FLLS5', full_name='RecReg.LLSDt.FLLS5', index=14,
+      name='FLLS5', full_name='profi2_optim2_lite2.RecReg.LLSDt.FLLS5', index=14,
       number=15, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TLLS6', full_name='RecReg.LLSDt.TLLS6', index=15,
+      name='TLLS6', full_name='profi2_optim2_lite2.RecReg.LLSDt.TLLS6', index=15,
       number=16, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='CLLS6', full_name='RecReg.LLSDt.CLLS6', index=16,
+      name='CLLS6', full_name='profi2_optim2_lite2.RecReg.LLSDt.CLLS6', index=16,
       number=17, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FLLS6', full_name='RecReg.LLSDt.FLLS6', index=17,
+      name='FLLS6', full_name='profi2_optim2_lite2.RecReg.LLSDt.FLLS6', index=17,
       number=18, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -690,69 +690,69 @@ _RECREG_LLSDT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1272,
-  serialized_end=1549,
+  serialized_start=1453,
+  serialized_end=1730,
 )
 
 _RECREG_OTHER_ONEWIRE = _descriptor.Descriptor(
   name='OneWire',
-  full_name='RecReg.Other.OneWire',
+  full_name='profi2_optim2_lite2.RecReg.Other.OneWire',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='OneWire1', full_name='RecReg.Other.OneWire.OneWire1', index=0,
+      name='OneWire1', full_name='profi2_optim2_lite2.RecReg.Other.OneWire.OneWire1', index=0,
       number=1, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='OneWire2', full_name='RecReg.Other.OneWire.OneWire2', index=1,
+      name='OneWire2', full_name='profi2_optim2_lite2.RecReg.Other.OneWire.OneWire2', index=1,
       number=2, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='OneWire3', full_name='RecReg.Other.OneWire.OneWire3', index=2,
+      name='OneWire3', full_name='profi2_optim2_lite2.RecReg.Other.OneWire.OneWire3', index=2,
       number=3, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='OneWire4', full_name='RecReg.Other.OneWire.OneWire4', index=3,
+      name='OneWire4', full_name='profi2_optim2_lite2.RecReg.Other.OneWire.OneWire4', index=3,
       number=4, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='OneWire5', full_name='RecReg.Other.OneWire.OneWire5', index=4,
+      name='OneWire5', full_name='profi2_optim2_lite2.RecReg.Other.OneWire.OneWire5', index=4,
       number=5, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='OneWire6', full_name='RecReg.Other.OneWire.OneWire6', index=5,
+      name='OneWire6', full_name='profi2_optim2_lite2.RecReg.Other.OneWire.OneWire6', index=5,
       number=6, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='OneWire7', full_name='RecReg.Other.OneWire.OneWire7', index=6,
+      name='OneWire7', full_name='profi2_optim2_lite2.RecReg.Other.OneWire.OneWire7', index=6,
       number=7, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='OneWire8', full_name='RecReg.Other.OneWire.OneWire8', index=7,
+      name='OneWire8', full_name='profi2_optim2_lite2.RecReg.Other.OneWire.OneWire8', index=7,
       number=8, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -770,48 +770,48 @@ _RECREG_OTHER_ONEWIRE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1640,
-  serialized_end=1793,
+  serialized_start=1861,
+  serialized_end=2014,
 )
 
 _RECREG_OTHER_PHERIP = _descriptor.Descriptor(
   name='Pherip',
-  full_name='RecReg.Other.Pherip',
+  full_name='profi2_optim2_lite2.RecReg.Other.Pherip',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='PassengerIn', full_name='RecReg.Other.Pherip.PassengerIn', index=0,
+      name='PassengerIn', full_name='profi2_optim2_lite2.RecReg.Other.Pherip.PassengerIn', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='PassengerOut', full_name='RecReg.Other.Pherip.PassengerOut', index=1,
+      name='PassengerOut', full_name='profi2_optim2_lite2.RecReg.Other.Pherip.PassengerOut', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='DoorMask', full_name='RecReg.Other.Pherip.DoorMask', index=2,
+      name='DoorMask', full_name='profi2_optim2_lite2.RecReg.Other.Pherip.DoorMask', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='DriverStatus', full_name='RecReg.Other.Pherip.DriverStatus', index=3,
+      name='DriverStatus', full_name='profi2_optim2_lite2.RecReg.Other.Pherip.DriverStatus', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TPMS', full_name='RecReg.Other.Pherip.TPMS', index=4,
+      name='TPMS', full_name='profi2_optim2_lite2.RecReg.Other.Pherip.TPMS', index=4,
       number=5, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
@@ -829,27 +829,27 @@ _RECREG_OTHER_PHERIP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1795,
-  serialized_end=1900,
+  serialized_start=2016,
+  serialized_end=2121,
 )
 
 _RECREG_OTHER = _descriptor.Descriptor(
   name='Other',
-  full_name='RecReg.Other',
+  full_name='profi2_optim2_lite2.RecReg.Other',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='onewire', full_name='RecReg.Other.onewire', index=0,
+      name='onewire', full_name='profi2_optim2_lite2.RecReg.Other.onewire', index=0,
       number=1, type=10, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='pherip', full_name='RecReg.Other.pherip', index=1,
+      name='pherip', full_name='profi2_optim2_lite2.RecReg.Other.pherip', index=1,
       number=2, type=10, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -867,20 +867,20 @@ _RECREG_OTHER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1552,
-  serialized_end=1900,
+  serialized_start=1733,
+  serialized_end=2121,
 )
 
 _RECREG_LOG = _descriptor.Descriptor(
   name='LOG',
-  full_name='RecReg.LOG',
+  full_name='profi2_optim2_lite2.RecReg.LOG',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Debug', full_name='RecReg.LOG.Debug', index=0,
+      name='Debug', full_name='profi2_optim2_lite2.RecReg.LOG.Debug', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -898,76 +898,76 @@ _RECREG_LOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1902,
-  serialized_end=1922,
+  serialized_start=2123,
+  serialized_end=2143,
 )
 
 _RECREG = _descriptor.Descriptor(
   name='RecReg',
-  full_name='RecReg',
+  full_name='profi2_optim2_lite2.RecReg',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='mID', full_name='RecReg.mID', index=0,
+      name='mID', full_name='profi2_optim2_lite2.RecReg.mID', index=0,
       number=1, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='general', full_name='RecReg.general', index=1,
+      name='general', full_name='profi2_optim2_lite2.RecReg.general', index=1,
       number=2, type=10, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='photo', full_name='RecReg.photo', index=2,
+      name='photo', full_name='profi2_optim2_lite2.RecReg.photo', index=2,
       number=4, type=10, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='nav', full_name='RecReg.nav', index=3,
+      name='nav', full_name='profi2_optim2_lite2.RecReg.nav', index=3,
       number=5, type=10, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='unidt', full_name='RecReg.unidt', index=4,
+      name='unidt', full_name='profi2_optim2_lite2.RecReg.unidt', index=4,
       number=6, type=10, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='candt', full_name='RecReg.candt', index=5,
+      name='candt', full_name='profi2_optim2_lite2.RecReg.candt', index=5,
       number=7, type=10, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='llsdt', full_name='RecReg.llsdt', index=6,
+      name='llsdt', full_name='profi2_optim2_lite2.RecReg.llsdt', index=6,
       number=8, type=10, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='other', full_name='RecReg.other', index=7,
+      name='other', full_name='profi2_optim2_lite2.RecReg.other', index=7,
       number=9, type=10, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='log', full_name='RecReg.log', index=8,
+      name='log', full_name='profi2_optim2_lite2.RecReg.log', index=8,
       number=16, type=10, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -985,8 +985,8 @@ _RECREG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30,
-  serialized_end=1922,
+  serialized_start=51,
+  serialized_end=2143,
 )
 
 _RECREG_GENERAL.containing_type = _RECREG
@@ -1017,42 +1017,42 @@ RecReg = _reflection.GeneratedProtocolMessageType('RecReg', (_message.Message,),
   'General' : _reflection.GeneratedProtocolMessageType('General', (_message.Message,), {
     'DESCRIPTOR' : _RECREG_GENERAL,
     '__module__' : 'profi2_optim2_lite2_pb2'
-    # @@protoc_insertion_point(class_scope:RecReg.General)
+    # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg.General)
     })
   ,
 
   'Photo' : _reflection.GeneratedProtocolMessageType('Photo', (_message.Message,), {
     'DESCRIPTOR' : _RECREG_PHOTO,
     '__module__' : 'profi2_optim2_lite2_pb2'
-    # @@protoc_insertion_point(class_scope:RecReg.Photo)
+    # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg.Photo)
     })
   ,
 
   'NAV' : _reflection.GeneratedProtocolMessageType('NAV', (_message.Message,), {
     'DESCRIPTOR' : _RECREG_NAV,
     '__module__' : 'profi2_optim2_lite2_pb2'
-    # @@protoc_insertion_point(class_scope:RecReg.NAV)
+    # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg.NAV)
     })
   ,
 
   'UniDt' : _reflection.GeneratedProtocolMessageType('UniDt', (_message.Message,), {
     'DESCRIPTOR' : _RECREG_UNIDT,
     '__module__' : 'profi2_optim2_lite2_pb2'
-    # @@protoc_insertion_point(class_scope:RecReg.UniDt)
+    # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg.UniDt)
     })
   ,
 
   'CanDt' : _reflection.GeneratedProtocolMessageType('CanDt', (_message.Message,), {
     'DESCRIPTOR' : _RECREG_CANDT,
     '__module__' : 'profi2_optim2_lite2_pb2'
-    # @@protoc_insertion_point(class_scope:RecReg.CanDt)
+    # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg.CanDt)
     })
   ,
 
   'LLSDt' : _reflection.GeneratedProtocolMessageType('LLSDt', (_message.Message,), {
     'DESCRIPTOR' : _RECREG_LLSDT,
     '__module__' : 'profi2_optim2_lite2_pb2'
-    # @@protoc_insertion_point(class_scope:RecReg.LLSDt)
+    # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg.LLSDt)
     })
   ,
 
@@ -1061,31 +1061,31 @@ RecReg = _reflection.GeneratedProtocolMessageType('RecReg', (_message.Message,),
     'OneWire' : _reflection.GeneratedProtocolMessageType('OneWire', (_message.Message,), {
       'DESCRIPTOR' : _RECREG_OTHER_ONEWIRE,
       '__module__' : 'profi2_optim2_lite2_pb2'
-      # @@protoc_insertion_point(class_scope:RecReg.Other.OneWire)
+      # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg.Other.OneWire)
       })
     ,
 
     'Pherip' : _reflection.GeneratedProtocolMessageType('Pherip', (_message.Message,), {
       'DESCRIPTOR' : _RECREG_OTHER_PHERIP,
       '__module__' : 'profi2_optim2_lite2_pb2'
-      # @@protoc_insertion_point(class_scope:RecReg.Other.Pherip)
+      # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg.Other.Pherip)
       })
     ,
     'DESCRIPTOR' : _RECREG_OTHER,
     '__module__' : 'profi2_optim2_lite2_pb2'
-    # @@protoc_insertion_point(class_scope:RecReg.Other)
+    # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg.Other)
     })
   ,
 
   'LOG' : _reflection.GeneratedProtocolMessageType('LOG', (_message.Message,), {
     'DESCRIPTOR' : _RECREG_LOG,
     '__module__' : 'profi2_optim2_lite2_pb2'
-    # @@protoc_insertion_point(class_scope:RecReg.LOG)
+    # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg.LOG)
     })
   ,
   'DESCRIPTOR' : _RECREG,
   '__module__' : 'profi2_optim2_lite2_pb2'
-  # @@protoc_insertion_point(class_scope:RecReg)
+  # @@protoc_insertion_point(class_scope:profi2_optim2_lite2.RecReg)
   })
 _sym_db.RegisterMessage(RecReg)
 _sym_db.RegisterMessage(RecReg.General)

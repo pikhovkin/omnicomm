@@ -1,3 +1,4 @@
+package profi_optim_lite;
 message RecReg {
   repeated uint32 mID = 1 [packed=true]; // идентификатор события (возможно несколько событий в одном сообщении.)
   optional group General = 2 { // Основные параметры
