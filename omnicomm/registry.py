@@ -3,7 +3,7 @@ from google.protobuf.message import Message
 from .types import RegFwCmd
 
 
-class Registry:
+class RegFwCmdRegistry:
     def __init__(self) -> None:
         self._registry: dict[RegFwCmd, type[Message]] = {}
 
@@ -28,4 +28,4 @@ class Registry:
                 return self._registry.get(key[0], None)
 
 
-registry = Registry()
+reg_fw_cmd = RegFwCmdRegistry()

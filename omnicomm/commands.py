@@ -6,7 +6,7 @@ from google.protobuf.message import Message
 from google.protobuf.json_format import MessageToDict, ParseDict
 
 from .exceptions import CommandAlreadyExists
-from .registry import registry
+from .registry import reg_fw_cmd
 
 
 class BaseCommand:
@@ -105,7 +105,7 @@ class Cmd86(BaseCommand):
     @classmethod
     def pack(cls, value: dict, conf: dict | None = None) -> bytes:
         reg_id, fw = value.get('reg_id', 0), value.get('firmware', 0)
-        proto_class: type[Message] = registry[(reg_id, fw, cls.id)]
+        proto_class: type[Message] = reg_fw_cmd[(reg_id, fw, cls.id)]
 
         data = bytearray()
         msgs = value.get('msgs', [])
@@ -128,7 +128,7 @@ class Cmd86(BaseCommand):
         data = data[9:]
 
         reg_id, fw =  (conf or {}).get('reg_id', 0), (conf or {}).get('firmware', 0)
-        proto_class: type[Message] = registry[(reg_id, fw, cls.id)]
+        proto_class: type[Message] = reg_fw_cmd[(reg_id, fw, cls.id)]
 
         msgs = []
         while data:

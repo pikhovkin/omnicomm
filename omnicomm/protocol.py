@@ -8,7 +8,7 @@ from .exceptions import CRCDoesNotMatch, FrameMarkerDoesNotExist
 from .commands import Command
 from .types import RegFwCmd
 from .utils import import_string
-from .registry import registry
+from .registry import reg_fw_cmd
 
 
 class Protocol:
@@ -66,7 +66,7 @@ class Protocol:
     @classmethod
     def register_proto(cls, item: RegFwCmd, module: str) -> None:
         proto_class = import_string(module)
-        registry.register(item, proto_class)
+        reg_fw_cmd.register(item, proto_class)
 
     @classmethod
     def load_command_proto(cls) -> None:
