@@ -106,12 +106,15 @@ class Cmd86(BaseCommand):
         proto_class: type[Message] = reg_fw_cmd[(reg_id, fw, self.id)]
 
         data = bytearray()
-        msgs = self.value.get('msgs', [])
+        msgs = self.value.get('msgs', []) or []
         for msg in msgs:
             _msg = self.pack_protobuf(msg, proto_class)
             length = len(_msg)
             data += struct.pack('<H', length)
             data += _msg
+
+        if not data:
+            return b''
         return struct.pack(f'<{self.format}', *self.from_dict(self.value, conf or {})) + data
 
     @classmethod
@@ -120,6 +123,9 @@ class Cmd86(BaseCommand):
 
     @classmethod
     def unpack(cls, data: bytes, conf: dict | None = None) -> BaseCommand:
+        if not data:
+            return cls({})
+
         num_rec, omnicomm_time, priority = struct.unpack_from(cls.format, data)
         value: dict = cls.to_dict(
             (
@@ -154,10 +160,18 @@ class Cmd87(BaseCommand):
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:  # noqa: ARG003  # conf
         return (value.get('rec_id', 0) or 0,)
 
+    @classmethod
+    def to_dict(cls, value: tuple[int, ...], conf: dict) -> dict:  # noqa: ARG003  # conf
+        return dict(rec_id=value[0])
+
 
 class Cmd88(BaseCommand):
     id: int = 0x88  # noqa: A003
     format: str = 'I'  # noqa: A003
+
+    @classmethod
+    def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:  # noqa: ARG003  # conf
+        return (value.get('rec_id', 0) or 0,)
 
     @classmethod
     def to_dict(cls, value: tuple[int, ...], conf: dict) -> dict:  # noqa: ARG003  # conf
