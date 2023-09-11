@@ -7,7 +7,7 @@ name = "omnicomm"
 dynamic = ["version"]
 description = "Implementation of the Omnicomm protocol"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 license = "MIT"
 keywords = [
   "omnicomm",
@@ -27,9 +27,6 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python",
   'Programming Language :: Python :: 3 :: Only',
-  "Programming Language :: Python :: 3.7",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -79,7 +76,7 @@ cov = [
 ]
 
 [[tool.hatch.envs.all.matrix]]
-python = ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
+python = ["3.10", "3.11", "3.12"]
 
 [tool.hatch.envs.lint]
 detached = true
@@ -112,7 +109,7 @@ exclude = [
 follow_imports = 'skip'
 
 [tool.black]
-target-version = ["py37"]
+target-version = ["py3.10"]
 line-length = 120
 skip-string-normalization = true
 extend-exclude = 'omnicomm/proto'
@@ -121,7 +118,7 @@ extend-exclude = 'omnicomm/proto'
 src = [
   'omnicomm',
 ]
-target-version = "py37"
+target-version = "py3.10"
 line-length = 120
 select = [
   "A",
@@ -180,7 +177,7 @@ ban-relative-imports = "all"
 "tests/**/*" = ["PLR2004", "S101", "TID252"]
 
 [tool.coverage.run]
-source_pkgs = ["omnicomm", "omnicomm.tests"]
+source_pkgs = ["omnicomm",]
 branch = true
 parallel = true
 omit = [
@@ -189,7 +186,6 @@ omit = [
 
 [tool.coverage.paths]
 omnicomm = ["omnicomm", "*/omnicomm/omnicomm"]
-tests = ["tests", "*/omnicomm/tests"]
 
 [tool.coverage.report]
 exclude_lines = [
