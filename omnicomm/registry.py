@@ -8,12 +8,6 @@ class RegFwCmdRegistry:
     def __init__(self) -> None:
         self._registry: dict[int | RegFwCmd, type[Message]] = {}
 
-    def register(self, key: int | RegFwCmd, proto_class: type[Message]) -> None:
-        self._registry[key] = proto_class
-
-    def unregister(self, key: int | RegFwCmd) -> None:
-        self._registry.pop(key, None)
-
     def __getitem__(self, item: int | RegFwCmd) -> type[Message]:
         proto_cls: type[Message] | None = None
         if isinstance(item, int):
@@ -38,6 +32,15 @@ class RegFwCmdRegistry:
             raise ProtoDoesNotExistError(msg)
 
         return proto_cls
+
+    def clear(self):
+        self._registry = {}
+
+    def register(self, key: int | RegFwCmd, proto_class: type[Message]) -> None:
+        self._registry[key] = proto_class
+
+    def unregister(self, key: int | RegFwCmd) -> None:
+        self._registry.pop(key, None)
 
 
 reg_fw_cmd = RegFwCmdRegistry()
