@@ -73,9 +73,11 @@ class Protocol:
         reg_fw_cmd.register(item, proto_class)
 
     @classmethod
-    def load_command_proto(cls) -> None:
-        cmd_proto = getattr(settings, 'COMMAND_PROTO', {}) or {}
-        for k, v in cmd_proto.items():
+    def load_command_proto(cls, cmd_proto: dict[int | RegFwCmd, str] | None = None) -> None:
+        _cmd_proto: dict[int | RegFwCmd, str] = getattr(settings, 'COMMAND_PROTO', {}) or {}
+        _cmd_proto.update(cmd_proto or {})
+        reg_fw_cmd.clear()
+        for k, v in _cmd_proto.items():
             cls.register_proto(k, v)
 
 
