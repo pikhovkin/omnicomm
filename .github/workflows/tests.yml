@@ -40,7 +40,9 @@ jobs:
       run: hatch run +py=${{ matrix.python-version }} all:cov
 
     - name: Combine
-      run: export COVERED_DISPLAY=$(python -c "import json;print(json.load(open('coverage.json'))['totals']['percent_covered_display'])")
+      run: |
+        export COVERED_DISPLAY=$(python -c "import json;print(json.load(open('coverage.json'))['totals']['percent_covered_display'])")
+        echo "COVERED_DISPLAY=$COVERED_DISPLAY" >> $GITHUB_ENV
 
     - name: Create the Badge
       uses: schneegans/dynamic-badges-action@v1.6.0
