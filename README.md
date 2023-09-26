@@ -1,6 +1,7 @@
 # omnicomm
 
 [![GitHub Actions](https://github.com/pikhovkin/omnicomm/actions/workflows/tests.yml/badge.svg)](https://github.com/pikhovkin/omnicomm/actions)
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/pikhovkin/c500a58a703c75a80014a92d8bf031f4/raw/covbadge.json)
 [![PyPI - Version](https://img.shields.io/pypi/v/omnicomm.svg)](https://pypi.org/project/omnicomm/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/omnicomm.svg)](https://pypi.org/project/omnicomm/)
 [![PyPI - License](https://img.shields.io/pypi/l/omnicomm.svg)](./LICENSE)

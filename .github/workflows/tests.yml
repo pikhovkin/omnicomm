@@ -38,3 +38,18 @@ jobs:
 
     - name: Run tests
       run: hatch run +py=${{ matrix.python-version }} all:cov
+
+    - name: Combine
+      run: export COVERED_DISPLAY=$(python -c "import json;print(json.load(open('coverage.json'))['totals']['percent_covered_display'])")
+
+    - name: Create the Badge
+      uses: schneegans/dynamic-badges-action@v1.6.0
+      with:
+        auth: ${{ secrets.COVERAGE_TOKEN }}
+        gistID: c500a58a703c75a80014a92d8bf031f4
+        filename: covbadge.json
+        label: Coverage
+        message: ${{ env.COVERED_DISPLAY }}
+        valColorRange: ${{ env.COVERED_DISPLAY }}
+        maxColorRange: 90
+        minColorRange: 50
