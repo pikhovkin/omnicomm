@@ -12,7 +12,9 @@ Implementation of the Omnicomm protocol.
 
 ### Installation
 
-    pip install omnicomm
+```console
+pip install omnicomm
+```
 
 ### Usage
 
