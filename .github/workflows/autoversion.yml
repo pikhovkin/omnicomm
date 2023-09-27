@@ -33,9 +33,9 @@ jobs:
       run: |
         CHANGELOG=$(hatch version $VERSION_SEGMENT)
         TAG=$(hatch version)
-        git config --global user.email "auto@version";
-        git config --global user.name "autoversion";
-        git commit -am "$CHANGELOG";
+        git config --global user.email "auto@version"
+        git config --global user.name "autoversion"
+        git commit -am "Release: $TAG"
         git tag "$TAG"
         git push && git push --tags
 #        gh release create $TAG --title "$TAG" --notes "$CHANGELOG"
