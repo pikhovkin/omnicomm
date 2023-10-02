@@ -30,12 +30,22 @@ jobs:
 
     - name: Check github actions
       run: |
-        echo "${{ github.event.pusher }}"
-        echo "${{ github.event.pusher.name }}"
-        echo "${{ github.event.pusher.username }}"
-        echo "${{ github.event.sender }}"
-        echo "${{ github.event.sender.name }}"
-        echo "${{ github.event.sender.username }}"
+        echo "actor.login: ${{ github.event.actor.login }}"
+        echo "actor.name: ${{ github.event.actor.name }}"
+        echo "actor.username: ${{ github.event.actor.username }}"
+        echo "actor.email: ${{ github.event.actor.email }}"
+        echo "pusher.login: ${{ github.event.pusher.login }}"
+        echo "pusher.name: ${{ github.event.pusher.name }}"
+        echo "pusher.username: ${{ github.event.pusher.username }}"
+        echo "pusher.email: ${{ github.event.pusher.email }}"
+        echo "sender.login: ${{ github.event.sender.login }}"
+        echo "sender.name: ${{ github.event.sender.name }}"
+        echo "sender.username: ${{ github.event.sender.username }}"
+        echo "sender.email: ${{ github.event.sender.email }}"
+        echo "assignee.login: ${{ github.event.assignee.login }}"
+        echo "assignee.name: ${{ github.event.assignee.name }}"
+        echo "assignee.username: ${{ github.event.assignee.username }}"
+        echo "assignee.email: ${{ github.event.assignee.email }}"
 
     - name: Install Hatch
       run: |
