@@ -5,7 +5,8 @@ import libscrc
 from omnicomm import settings
 from omnicomm.commands import BaseCommand, commands
 from omnicomm.exceptions import (CRCDoesNotMatchError,
-                                 FrameMarkerDoesNotExistError)
+                                 FrameMarkerDoesNotExistError,
+                                 UnpackingCRCError)
 from omnicomm.registry import reg_fw_cmd
 from omnicomm.types import RegFwCmd
 from omnicomm.utils import import_string
@@ -54,7 +55,12 @@ class Protocol:
 
         cmd_num = struct.unpack_from('<B', data, offset=0)[0]
         length = struct.unpack_from('<H', data, offset=1)[0]
-        original_crc = cls.unpack_crc(data, offset=3 + length)
+        try:
+            original_crc = cls.unpack_crc(data, offset=3 + length)
+        except struct.error as err:
+            msg = 'More data is required to unpack'
+            raise UnpackingCRCError(msg) from err
+
         original_data = data[3: 3 + length]
 
         crc = cls.make_crc(cmd_num, length, original_data)
