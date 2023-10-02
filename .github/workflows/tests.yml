@@ -28,6 +28,13 @@ jobs:
         python-version: ${{ matrix.python-version }}
         allow-prereleases: true
 
+    - name: Check github actions
+      run: |
+        echo "${{ github.event.pusher }}"
+        echo "${{ github.event.pusher.name }}"
+        echo "${{ github.event.pusher.username }}"
+        echo "${{ github.event.sender }}"
+
     - name: Install Hatch
       run: |
         pip install --upgrade pip
