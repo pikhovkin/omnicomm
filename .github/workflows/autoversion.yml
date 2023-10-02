@@ -32,11 +32,10 @@ jobs:
     - name: Publish release on github
       run: |
         CHANGELOG=$(hatch version $VERSION_SEGMENT)
-        echo "$CHANGELOG"
         TAG=$(hatch version)
         git config --global user.email "auto@version"
         git config --global user.name "autoversion"
-        git commit -am "Release: $TAG"
+        git commit -am "Release: $TAG\n$CHANGELOG"
         git tag "$TAG"
         git push && git push --tags
 #        gh release create $TAG --title "$TAG" --notes "$CHANGELOG"
