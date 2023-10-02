@@ -46,6 +46,12 @@ jobs:
         echo "assignee.name: ${{ github.event.assignee.name }}"
         echo "assignee.username: ${{ github.event.assignee.username }}"
         echo "assignee.email: ${{ github.event.assignee.email }}"
+        echo "head_commit.author.email: ${{ github.event.head_commit.author.email }}"
+        echo "head_commit.author.name: ${{ github.event.head_commit.author.name }}"
+        echo "head_commit.author.username: ${{ github.event.head_commit.author.username }}"
+        echo "head_commit.committer.email: ${{ github.event.head_commit.committer.email }}"
+        echo "head_commit.committer.name: ${{ github.event.head_commit.committer.name }}"
+        echo "head_commit.committer.username: ${{ github.event.head_commit.committer.username }}"
 
     - name: Install Hatch
       run: |

@@ -12,7 +12,7 @@ on:
           - minor
 
 jobs:
-  publish:
+  release:
     env:
       VERSION_SEGMENT: ${{ github.event.inputs.version-segment }}
     runs-on: ubuntu-latest
