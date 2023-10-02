@@ -41,7 +41,7 @@ jobs:
         $CHANGELOG"
         git tag "$TAG"
         git push && git push --tags
-#        gh release create $TAG --title "$TAG" --notes "$CHANGELOG"
+        gh release create $TAG --title "$TAG" --notes "$CHANGELOG"
 #    - name: Build package
 #      run: hatch build
 #    - name: Publish package
