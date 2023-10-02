@@ -11,6 +11,9 @@ on:
 
 jobs:
   test:
+    if: >-
+      github.event.head_commit.author.email != 'auto@version' && 
+      github.event.head_commit.committer.email != 'auto@version'
     name: Python ${{ matrix.python-version }} on ${{ startsWith(matrix.os, 'macos-') && 'macOS' || startsWith(matrix.os, 'windows-') && 'Windows' || 'Linux' }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -27,31 +30,6 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         allow-prereleases: true
-
-    - name: Check github actions
-      run: |
-        echo "actor.login: ${{ github.event.actor.login }}"
-        echo "actor.name: ${{ github.event.actor.name }}"
-        echo "actor.username: ${{ github.event.actor.username }}"
-        echo "actor.email: ${{ github.event.actor.email }}"
-        echo "pusher.login: ${{ github.event.pusher.login }}"
-        echo "pusher.name: ${{ github.event.pusher.name }}"
-        echo "pusher.username: ${{ github.event.pusher.username }}"
-        echo "pusher.email: ${{ github.event.pusher.email }}"
-        echo "sender.login: ${{ github.event.sender.login }}"
-        echo "sender.name: ${{ github.event.sender.name }}"
-        echo "sender.username: ${{ github.event.sender.username }}"
-        echo "sender.email: ${{ github.event.sender.email }}"
-        echo "assignee.login: ${{ github.event.assignee.login }}"
-        echo "assignee.name: ${{ github.event.assignee.name }}"
-        echo "assignee.username: ${{ github.event.assignee.username }}"
-        echo "assignee.email: ${{ github.event.assignee.email }}"
-        echo "head_commit.author.email: ${{ github.event.head_commit.author.email }}"
-        echo "head_commit.author.name: ${{ github.event.head_commit.author.name }}"
-        echo "head_commit.author.username: ${{ github.event.head_commit.author.username }}"
-        echo "head_commit.committer.email: ${{ github.event.head_commit.committer.email }}"
-        echo "head_commit.committer.name: ${{ github.event.head_commit.committer.name }}"
-        echo "head_commit.committer.username: ${{ github.event.head_commit.committer.username }}"
 
     - name: Install Hatch
       run: |
