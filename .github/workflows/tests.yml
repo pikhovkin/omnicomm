@@ -34,6 +34,8 @@ jobs:
         echo "${{ github.event.pusher.name }}"
         echo "${{ github.event.pusher.username }}"
         echo "${{ github.event.sender }}"
+        echo "${{ github.event.sender.name }}"
+        echo "${{ github.event.sender.username }}"
 
     - name: Install Hatch
       run: |
