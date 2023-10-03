@@ -29,13 +29,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install hatch
-    - name: Publish release on github
-      env:
-        GH_TOKEN: ${{ github.token }}
+    - name: Push new version on github
       run: |
         CHANGELOG=$(hatch version $VERSION_SEGMENT)
-        echo "$CHANGELOG" >> $GITHUB_ENV
+        echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
         TAG=$(hatch version)
+        echo "TAG=$TAG" >> $GITHUB_ENV
         git config --global user.email "auto@version"
         git config --global user.name "autoversion"
         git commit -am "Release: $TAG
@@ -43,4 +42,8 @@ jobs:
         $CHANGELOG"
         git tag "$TAG"
         git push && git push --tags
-        gh release create $TAG --title "$TAG" --notes "$CHANGELOG"
+    - name: Publish release on github
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        gh release create ${{ env.TAG }} --title "${{ env.TAG }}" --notes "${{ env.CHANGELOG }}"
