@@ -1,12 +1,16 @@
 import time
 from unittest import TestCase
 
-from omnicomm import commands, protocol
+from omnicomm import commands, exceptions, protocol
 
 
 class ProtocolTest(TestCase):
     def setUp(self) -> None:
         protocol.Protocol.load_command_proto()
+
+    def test_unpack_empty_data(self):
+        with self.assertRaises(exceptions.EmptyDataError):
+            protocol.ServerProtocol.unpack(b'')
 
     def test_80(self):
         value = {'reg_id': 202000013, 'firmware': 114}

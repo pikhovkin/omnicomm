@@ -4,14 +4,14 @@ import libscrc
 
 from omnicomm import settings
 from omnicomm.commands import BaseCommand, commands
-from omnicomm.exceptions import (CRCDoesNotMatchError,
+from omnicomm.exceptions import (CRCDoesNotMatchError, EmptyDataError,
                                  FrameMarkerDoesNotExistError,
                                  UnpackingCRCError)
 from omnicomm.registry import reg_fw_cmd
 from omnicomm.types import RegFwCmd
 from omnicomm.utils import import_string
 
-FRAME_MARKER = 0xc0
+FRAME_MARKER = b'\xc0'
 
 
 class Protocol:
@@ -25,11 +25,11 @@ class Protocol:
 
     @classmethod
     def decode(cls, data) -> bytes:
-        return data[1:].replace(b'\xdb\xdc', b'\xc0').replace(b'\xdb\xdd', b'\xdb')
+        return data[1:].replace(b'\xdb\xdc', FRAME_MARKER).replace(b'\xdb\xdd', b'\xdb')
 
     @classmethod
     def encode(cls, data) -> bytes:
-        return b'\xc0' + data.replace(b'\xdb', b'\xdb\xdd').replace(b'\xc0', b'\xdb\xdc')
+        return FRAME_MARKER + data.replace(b'\xdb', b'\xdb\xdd').replace(FRAME_MARKER, b'\xdb\xdc')
 
     @classmethod
     def make_crc(cls, cmd_id: int, length, data: bytes) -> int:
@@ -47,11 +47,17 @@ class Protocol:
 
     @classmethod
     def unpack(cls, data: bytes) -> tuple[BaseCommand, bytes]:
-        if data[0] != FRAME_MARKER:
+        if not data:
+            msg = 'Data does not exist'
+            raise EmptyDataError(msg)
+        elif data[0] != FRAME_MARKER[0]:
             msg = 'Frame marker does not exist'
             raise FrameMarkerDoesNotExistError(msg)
 
-        data = cls.decode(data)
+        another_frame_idx = data[1:].find(FRAME_MARKER)
+        remain = data[another_frame_idx + 1:] if another_frame_idx > -1 else b''
+
+        data = cls.decode(data[:another_frame_idx + 1] if another_frame_idx > -1 else data)
 
         cmd_num = struct.unpack_from('<B', data, offset=0)[0]
         length = struct.unpack_from('<H', data, offset=1)[0]
@@ -67,8 +73,6 @@ class Protocol:
         if original_crc != crc:
             msg = 'CRC does not match'
             raise CRCDoesNotMatchError(msg)
-
-        remain = data[5 + length:]
 
         cmd = commands[cmd_num].unpack(original_data)
         return cmd, remain

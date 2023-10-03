@@ -2,6 +2,10 @@ class OmnicommError(Exception):
     ...
 
 
+class EmptyDataError(OmnicommError):
+    ...
+
+
 class CommandAlreadyExistsError(OmnicommError):
     ...
 
