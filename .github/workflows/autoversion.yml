@@ -15,7 +15,7 @@ jobs:
   release:
     env:
       VERSION_SEGMENT: ${{ github.event.inputs.version-segment }}
-      GH_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ github.GH_TOKEN }}
     runs-on: ubuntu-latest
 
     steps:
