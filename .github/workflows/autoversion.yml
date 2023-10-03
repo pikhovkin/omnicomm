@@ -17,6 +17,7 @@ jobs:
       VERSION_SEGMENT: ${{ github.event.inputs.version-segment }}
     runs-on: ubuntu-latest
 
+
     steps:
     - uses: actions/checkout@v3
       with:
@@ -44,6 +45,6 @@ jobs:
         git push && git push --tags
     - name: Publish release on github
       env:
-        GH_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
         gh release create ${{ env.TAG }} --title "${{ env.TAG }}" --notes "${{ env.CHANGELOG }}"
