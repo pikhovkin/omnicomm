@@ -44,8 +44,3 @@ jobs:
         git tag "$TAG"
         git push && git push --tags
         gh release create $TAG --title "$TAG" --notes "$CHANGELOG"
-#    - name: Build package
-#      run: hatch build
-#    - name: Publish package
-#      run: |
-#        hatch publish -u __token__ -a ${{ secrets.PYPI_API_TOKEN }}
