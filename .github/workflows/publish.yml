@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-publish:
-    if: github.event_name == 'release' && github.event.action == 'created'
+#    if: github.event_name == 'release' && github.event.action == 'created'
     runs-on: ubuntu-latest
 
     steps:
