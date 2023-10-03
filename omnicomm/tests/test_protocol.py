@@ -10,7 +10,11 @@ class ProtocolTest(TestCase):
 
     def test_unpack_empty_data(self):
         with self.assertRaises(exceptions.EmptyDataError):
+            protocol.Protocol.unpack(b'')
+        with self.assertRaises(exceptions.EmptyDataError):
             protocol.ServerProtocol.unpack(b'')
+        with self.assertRaises(exceptions.EmptyDataError):
+            protocol.RegistrarProtocol.unpack(b'')
 
     def test_80(self):
         value = {'reg_id': 202000013, 'firmware': 114}
