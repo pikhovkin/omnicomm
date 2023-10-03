@@ -46,12 +46,4 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
-#        gh api \
-#        --method POST \
-#        -H "Accept: application/vnd.github+json" \
-#        -H "X-GitHub-Api-Version: 2022-11-28" \
-#        /repos/pikhovkin/omnicomm/releases \
-#        -f tag_name='${{ env.TAG }}' \
-#        -f name='${{ env.TAG }}' \
-#        -f body='${{ env.CHANGELOG }}' \
         gh release create ${{ env.TAG }} --title "${{ env.TAG }}" --notes "${{ env.CHANGELOG }}"
