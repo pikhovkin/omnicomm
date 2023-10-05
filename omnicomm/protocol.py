@@ -78,6 +78,23 @@ class Protocol:
         return cmd, remain
 
     @classmethod
+    def unpack_many(cls, data: bytes) -> tuple[[BaseCommand], bytes]:
+        cmds = []
+        cmd, remain = cls.unpack(data)
+        cmds.append(cmd)
+        data = remain
+        try:
+            while data:
+                cmd, remain = cls.unpack(data)
+                cmds.append(cmd)
+                data = remain
+        except Exception as err:
+            if not cmds:
+                raise err
+
+        return cmds, remain
+
+    @classmethod
     def register_proto(cls, item: RegFwCmd, module: str) -> None:
         proto_class = import_string(module)
         reg_fw_cmd.register(item, proto_class)
