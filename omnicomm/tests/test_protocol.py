@@ -146,16 +146,18 @@ class ProtocolUnpackMany(TestCase):
     def test_cmd2_no_remain(self):
         value = {'reg_id': 1234567890, 'firmware': 1}
         data = protocol.RegistrarProtocol.pack(commands.Cmd80(value))
-        cmds, remain = protocol.ServerProtocol.unpack_many(data + data)
-        self.assertTrue(len(cmds) == 2)
+        original_cmds = [data, data]
+        cmds, remain = protocol.ServerProtocol.unpack_many(b''.join(original_cmds))
+        self.assertTrue(len(cmds) == len(original_cmds))
         self.assertTrue(remain == b'')
 
     def test_cmd2_broken_remain(self):
         value = {'reg_id': 1234567890, 'firmware': 1}
         data = protocol.RegistrarProtocol.pack(commands.Cmd80(value))
+        original_cmds = [data, data]
         original_remain = data[:-1]
-        cmds, remain = protocol.ServerProtocol.unpack_many(data + data + original_remain)
-        self.assertTrue(len(cmds) == 2)
+        cmds, remain = protocol.ServerProtocol.unpack_many(b''.join(original_cmds) + original_remain)
+        self.assertTrue(len(cmds) == len(original_cmds))
         self.assertTrue(remain == original_remain)
 
     def test_empty_data_error(self):
