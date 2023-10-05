@@ -29,6 +29,10 @@ class Cmd86Test(TestCase):
         cmd86 = commands.Cmd86.unpack(msg)
         self.assertTrue(commands.Cmd86(cmd86.value).pack() == msg)
 
+    def test_empty(self):
+        cmd86 = commands.Cmd86.unpack(b'')
+        self.assertTrue(commands.Cmd86(cmd86.value).pack() == b'')
+
 
 class Cmd93Test(TestCase):
     def setUp(self) -> None:
