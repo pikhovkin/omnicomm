@@ -80,18 +80,15 @@ class Protocol:
     @classmethod
     def unpack_many(cls, data: bytes) -> tuple[[BaseCommand], bytes]:
         cmds = []
-        cmd, remain = cls.unpack(data)
-        cmds.append(cmd)
-        data = remain
+        remain = b''
         try:
-            while data:
+            while 1:
                 cmd, remain = cls.unpack(data)
                 cmds.append(cmd)
                 data = remain
         except Exception as err:
             if not cmds:
                 raise err
-
         return cmds, remain
 
     @classmethod
