@@ -59,8 +59,8 @@ class ProtocolTest(TestCase):
                 },
             ],
         }
-        data = protocol.ServerProtocol.pack(commands.Cmd86(value))
-        cmd, remain = protocol.RegistrarProtocol.unpack(data)
+        data = protocol.RegistrarProtocol.pack(commands.Cmd86(value))
+        cmd, remain = protocol.ServerProtocol.unpack(data)
         self.assertTrue(cmd.id == commands.Cmd86.id)
         self.assertTrue(cmd.value == value)
 
@@ -121,7 +121,7 @@ class ProtocolTest(TestCase):
                 },
             ],
         }
-        data = protocol.ServerProtocol.pack(commands.Cmd95(value))
-        cmd, remain = protocol.RegistrarProtocol.unpack(data)
+        data = protocol.RegistrarProtocol.pack(commands.Cmd95(value))
+        cmd, remain = protocol.ServerProtocol.unpack(data)
         self.assertTrue(cmd.id == commands.Cmd95.id)
         self.assertTrue(cmd.value == value)
