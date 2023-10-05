@@ -128,30 +128,34 @@ class ProtocolTest(TestCase):
 
 
 class ProtocolUnpackMany(TestCase):
-    def test_cmd1_no_remain(self):
+    def test_cmd_one_no_remain(self):
         value = {'reg_id': 1234567890, 'firmware': 1}
         data = protocol.RegistrarProtocol.pack(commands.Cmd80(value))
-        cmds, remain = protocol.ServerProtocol.unpack_many(data)
-        self.assertTrue(len(cmds) == 1)
-        self.assertTrue(remain == b'')
-
-    def test_cmd1_broken_remain(self):
-        value = {'reg_id': 1234567890, 'firmware': 1}
-        data = protocol.RegistrarProtocol.pack(commands.Cmd80(value))
-        original_remain = data[:-1]
-        cmds, remain = protocol.ServerProtocol.unpack_many(data + original_remain)
-        self.assertTrue(len(cmds) == 1)
+        original_cmds = [data]
+        original_remain = b''
+        cmds, remain = protocol.ServerProtocol.unpack_many(b''.join(original_cmds))
+        self.assertTrue(len(cmds) == len(original_cmds))
         self.assertTrue(remain == original_remain)
 
-    def test_cmd2_no_remain(self):
+    def test_cmd_one_with_remain(self):
+        value = {'reg_id': 1234567890, 'firmware': 1}
+        data = protocol.RegistrarProtocol.pack(commands.Cmd80(value))
+        original_cmds = [data]
+        original_remain = data[:-1]
+        cmds, remain = protocol.ServerProtocol.unpack_many(b''.join(original_cmds) + original_remain)
+        self.assertTrue(len(cmds) == len(original_cmds))
+        self.assertTrue(remain == original_remain)
+
+    def test_cmd_many_no_remain(self):
         value = {'reg_id': 1234567890, 'firmware': 1}
         data = protocol.RegistrarProtocol.pack(commands.Cmd80(value))
         original_cmds = [data, data]
+        original_remain = b''
         cmds, remain = protocol.ServerProtocol.unpack_many(b''.join(original_cmds))
         self.assertTrue(len(cmds) == len(original_cmds))
-        self.assertTrue(remain == b'')
+        self.assertTrue(remain == original_remain)
 
-    def test_cmd2_broken_remain(self):
+    def test_cmd_many_with_remain(self):
         value = {'reg_id': 1234567890, 'firmware': 1}
         data = protocol.RegistrarProtocol.pack(commands.Cmd80(value))
         original_cmds = [data, data]
