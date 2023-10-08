@@ -6,7 +6,11 @@ import asyncio
 
 from collections import defaultdict
 
+import io
+
 class InterfaceBase:
+    writer: io.IOBase
+
     def subscribe(self, cb, *ids):
         for i in ids:
             self.on_cmd_callbacks[i].add(cb)
@@ -47,7 +51,8 @@ class InterfaceBase:
         for cb in self.on_cmd_callbacks[None]:
             cb(cmd)
 
-    def __init__(self, writer, on_cmd=None):
+    def __init__(self, writer, on_cmd=None, ident=None):
+        self.my_ident = ident or dict()
         self.remain=b''
         self.writer = writer
         self.on_cmd_callbacks = defaultdict(set)
@@ -66,7 +71,8 @@ class InterfaceBase:
             self.on_cmd(cmd)
 
 
-class Server:
+class Server(InterfaceBase):
+   
     def on_identify(self, cmd: Cmd81):
         self.ident.set_result(cmd.value)
         
@@ -76,16 +82,43 @@ class Server:
     def on_delete(self, cmd: Cmd87):
         self.delete_ack(cmd.value)
     
-    async def delete_ack(self, value):
+    async def send_ident(self, reg_id: int, firmware: int):
+        value = {"reg_id":reg_id, "firmware": firmware}
         self.writer.write(
             ServerProtocol.pack(
-                Cmd88(value)
+                Cmd80(value)
+            )
+        )
+
+    async def send_archive(self, rec_id=None, msgs=None, priority=None, omnicomm_time=None, unix_time=None, cmd=Cmd86):
+        value = {
+            'rec_id':rec_id, 
+            'msgs':msgs, 
+            'priority':priority, 
+            'omnicomm_time':omnicomm_time, 
+            'unix_time':unix_time
+        }
+        
+        self.writer.write(
+            ServerProtocol.pack(
+                cmd(value)
+            )            
+        )
+
+    async def send_archive_live(self,  rec_id=None, msgs=None, priority=None, omnicomm_time=None, unix_time=None):
+        return self.send_archive( rec_id, msgs, priority, omnicomm_time, unix_time, cmd=Cmd95)
+
+
+    async def delete_ack(self, rec_id:int):
+        self.writer.write(
+            ServerProtocol.pack(
+                Cmd88({"rec_id":rec_id})
             )
         )
 
 class Registar(InterfaceBase):
 
-    async def get_identify(self):
+    async def get_ident(self):
         return await self.ident
 
     async def delete(self, rec_id):
@@ -105,15 +138,18 @@ class Registar(InterfaceBase):
     async def get_archive(self, rec_id: int, autodelete_each: bool=False, autodelete_last: bool=False):
         queue = asyncio.Queue()
         self.subscribe( queue.put_nowait , 0x86, 0x95 )
+        cmd: BaseCommand = None
         try:
             data = ServerProtocol.pack(Cmd85({'rec_id': rec_id}))
             self.writer.write(data)
             while True:
                 cmd = await queue.get()
                 yield cmd
-                if autodelete:
+                if autodelete_each:
                     await self.delete(rec_id=cmd.value['rec_id'])
         finally:
+            if autodelete_last and cmd:
+                await self.delete(rec_id=cmd.value['rec_id'])
             self.unsubscribe(queue.put_nowait , 0x86, 0x95)
 
     def on_identify(self, cmd: Cmd80):
@@ -151,8 +187,8 @@ class Registar(InterfaceBase):
         0x80:on_identify,
         0x86:on_archive,
         0x88:on_delete_ack,
-        0x93:on_time_request,
-        0x94:on_time_response,
+        0x93:InterfaceBase.on_time_request,
+        0x94:InterfaceBase.on_time_response,
         0x95:on_archive,
     }
 
