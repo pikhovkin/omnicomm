@@ -111,7 +111,7 @@ class Cmd86(BaseCommand):
         reg_id, fw = self.value.get('reg_id', 0), self.value.get('firmware', 0)
         proto_class: type[Message] = reg_fw_cmd[(reg_id, fw, self.id)]
 
-        data = bytearray()
+        data = b''
         msgs = self.value.get('msgs', []) or []
         for msg in msgs:
             _msg = self.pack_protobuf(msg, proto_class)
