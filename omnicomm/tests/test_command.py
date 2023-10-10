@@ -34,6 +34,12 @@ class Cmd86Test(TestCase):
         self.assertTrue(cmd86.value == {})
         self.assertTrue(commands.Cmd86(cmd86.value).pack() == b'')
 
+        data = commands.Cmd86({'rec_id': 1, 'omnicomm_time': 2, 'priority': 0}).pack()
+        self.assertTrue(commands.Cmd86.unpack(data).value == {})
+
+        data = commands.Cmd86({'rec_id': 1, 'unix_time': commands.Cmd86.BASE_TIME, 'priority': 0}).pack()
+        self.assertTrue(commands.Cmd86.unpack(data).value == {})
+
 
 class Cmd93Test(TestCase):
     def setUp(self) -> None:
