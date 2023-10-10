@@ -108,7 +108,7 @@ class Cmd86(BaseCommand):
         return value['rec_id'], int(omnicomm_time), value['priority']
 
     def pack(self, conf: dict | None = None) -> bytes:
-        msgs = self.value.get('msgs', []) or []
+        msgs: list | None = self.value.get('msgs')
         if not msgs:
             return b''
 
