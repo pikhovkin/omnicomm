@@ -64,6 +64,20 @@ class ProtocolTest(TestCase):
         self.assertTrue(cmd.id == commands.Cmd86.id)
         self.assertTrue(cmd.value == value)
 
+    def test_87(self):
+        value = {'rec_id': 123}
+        data = protocol.ServerProtocol.pack(commands.Cmd87(value))
+        cmd, remain = protocol.RegistrarProtocol.unpack(data)
+        self.assertTrue(cmd.id == commands.Cmd87.id)
+        self.assertTrue(cmd.value == value)
+
+    def test_88(self):
+        value = {'rec_id': 123}
+        data = protocol.RegistrarProtocol.pack(commands.Cmd88(value))
+        cmd, remain = protocol.ServerProtocol.unpack(data)
+        self.assertTrue(cmd.id == commands.Cmd88.id)
+        self.assertTrue(cmd.value == value)
+
     def test_93_from_server(self):
         value = {}
         data = protocol.ServerProtocol.pack(commands.Cmd93(value))

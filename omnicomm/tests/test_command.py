@@ -4,9 +4,6 @@ from omnicomm import commands, protocol
 
 
 class Cmd85Test(TestCase):
-    def setUp(self) -> None:
-        protocol.Protocol.load_command_proto()
-
     def test_simple(self):
         msg = bytes.fromhex('67F30000')
         cmd85 = commands.Cmd85.unpack(msg)
@@ -41,10 +38,21 @@ class Cmd86Test(TestCase):
         self.assertTrue(commands.Cmd86.unpack(data).value == {})
 
 
-class Cmd93Test(TestCase):
-    def setUp(self) -> None:
-        protocol.Protocol.load_command_proto()
+class Cmd87Test(TestCase):
+    def test_simple(self):
+        value = {'rec_id': 123}
+        data = commands.Cmd87(value).pack()
+        self.assertTrue(commands.Cmd87.unpack(data).value == value)
 
+
+class Cmd88Test(TestCase):
+    def test_simple(self):
+        value = {'rec_id': 456}
+        data = commands.Cmd88(value).pack()
+        self.assertTrue(commands.Cmd88.unpack(data).value == value)
+
+
+class Cmd93Test(TestCase):
     def test_simple(self):
         msg = bytes.fromhex('')
         cmd93 = commands.Cmd93.unpack(msg)
@@ -55,9 +63,6 @@ class Cmd93Test(TestCase):
 
 
 class Cmd94Test(TestCase):
-    def setUp(self) -> None:
-        protocol.Protocol.load_command_proto()
-
     def test_simple(self):
         msg = bytes.fromhex('c4a6b51b')
         cmd94 = commands.Cmd94.unpack(msg)
