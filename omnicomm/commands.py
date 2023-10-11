@@ -289,14 +289,14 @@ class Cmd95(Cmd86):
 #
 # class Cmd9E(BaseCommand):
 #     id: int = 0x9E
-#
-#
-# class Cmd9F(Cmd86):
-#     id: int = 0x9F
-#
-#
-# class CmdA0(Cmd87):
-#     id: int = 0xA0
+
+
+class Cmd9F(Cmd86):
+    id: int = 0x9F  # noqa: A003
+
+
+class CmdA0(Cmd87):
+    id: int = 0xA0  # noqa: A003
 
 
 commands = {}

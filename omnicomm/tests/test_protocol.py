@@ -6,7 +6,11 @@ from omnicomm import commands, exceptions, protocol
 
 class ProtocolTest(TestCase):
     def setUp(self) -> None:
-        protocol.Protocol.load_command_proto()
+        protocol.Protocol.load_command_proto(
+            {
+                0x9F: 'omnicomm.proto.profi_optim_lite_pb2.RecReg',
+            }
+        )
 
     def test_unpack_empty_data(self):
         with self.assertRaises(exceptions.EmptyDataError):
@@ -138,6 +142,47 @@ class ProtocolTest(TestCase):
         data = protocol.RegistrarProtocol.pack(commands.Cmd95(value))
         cmd, remain = protocol.ServerProtocol.unpack(data)
         self.assertTrue(cmd.id == commands.Cmd95.id)
+        self.assertTrue(cmd.value == value)
+
+    def test_9f(self):
+        value = {
+            'rec_id': 0,
+            'omnicomm_time': 0,
+            'unix_time': commands.Cmd9F.BASE_TIME,
+            'priority': 0,
+            'msgs': [
+                {
+                    'mID': [1],
+                    'general': {
+                        'Time': 135433134,
+                        'FLG': 7,
+                        'Mileage': 0,
+                        'VImp': 0,
+                        'TImp': 1000,
+                        'Uboard': 124,
+                        'SumAcc': 102,
+                    },
+                    'nav': {
+                        'LAT': 557887999,
+                        'LON': 375883499,
+                        'GPSVel': 3,
+                        'GPSDir': 264,
+                        'GPSNSat': 8,
+                        'GPSAlt': 2096,
+                    },
+                },
+            ],
+        }
+        data = protocol.RegistrarProtocol.pack(commands.Cmd9F(value))
+        cmd, remain = protocol.ServerProtocol.unpack(data)
+        self.assertTrue(cmd.id == commands.Cmd9F.id)
+        self.assertTrue(cmd.value == value)
+
+    def test_a0(self):
+        value = {'rec_id': 123}
+        data = protocol.ServerProtocol.pack(commands.CmdA0(value))
+        cmd, remain = protocol.RegistrarProtocol.unpack(data)
+        self.assertTrue(cmd.id == commands.CmdA0.id)
         self.assertTrue(cmd.value == value)
 
 
