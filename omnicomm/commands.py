@@ -77,6 +77,9 @@ class Cmd80(BaseCommand):
         return dict(reg_id=value[0], firmware=value[1])
 
 
+CmdRegistarIdentity = Cmd80
+
+
 class Cmd81(BaseCommand):
     """Идентификация КС
 
@@ -90,6 +93,9 @@ class Cmd81(BaseCommand):
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:  # noqa: ARG003
         return value.get('server_id', 0) or 0, value.get('server_ver', 0) or 0
+
+
+CmdServerIdentity = Cmd81
 
 
 class Cmd85(BaseCommand):
@@ -108,6 +114,9 @@ class Cmd85(BaseCommand):
     @classmethod
     def to_dict(cls, value: tuple[int, ...], conf: dict) -> dict:  # noqa: ARG003
         return dict(rec_id=value[0])
+
+
+CmdGetRecord = Cmd85
 
 
 class Cmd86(BaseCommand):
@@ -180,8 +189,11 @@ class Cmd86(BaseCommand):
         return cls(value)
 
 
+CmdRecordResponce = Cmd86
+
+
 class Cmd87(BaseCommand):
-    """Запрос на удаление записей архива
+    """Запрос на удаление записей архива. Подтверждение приёма 0x86 и 0x95. Разрешение перезаписи.
 
     Регистратор по этой команде перемещает указатель хвоста архива.
     Таким образом, КС посылает «подтверждение» Регистратору, о получении записей по указанную запись включительно,
@@ -198,6 +210,10 @@ class Cmd87(BaseCommand):
     @classmethod
     def to_dict(cls, value: tuple[int, ...], conf: dict) -> dict:  # noqa: ARG003
         return dict(rec_id=value[0])
+
+
+CmdDeleteRecord = Cmd87
+CmdRecordResponceAck = Cmd87
 
 
 class Cmd88(BaseCommand):
@@ -217,6 +233,8 @@ class Cmd88(BaseCommand):
     def to_dict(cls, value: tuple[int, ...], conf: dict) -> dict:  # noqa: ARG003
         return dict(rec_id=value[0])
 
+
+CmdDeleteRecordAck = Cmd88
 
 # class Cmd89(BaseCommand):
 #     id: int = 0x89
@@ -278,6 +296,9 @@ class Cmd93(BaseCommand):
         return {}
 
 
+CmdGetTime = Cmd93
+
+
 class Cmd94(BaseCommand):
     """Ответ на запрос локального времени системы
 
@@ -297,13 +318,19 @@ class Cmd94(BaseCommand):
         return dict(omnicomm_time=value[0], unix_time=cls.to_unix_time(value[0]))
 
 
+CmdTimeResponse = Cmd94
+
+
 class Cmd95(Cmd86):
     """Аналог команды 0x86.
     Передача текущих данных архива при удержании сессии, т.е. не требуется специальных запросов.
     Команда генерируется регистратором по завершении передачи архива и удержании TCP сессии КС-ом.
     """
+
     id: int = 0x95  # noqa: A003
 
+
+CmdRecordStream = Cmd95
 
 # class Cmd96(BaseCommand):
 #     id: int = 0x96
@@ -342,11 +369,30 @@ class Cmd95(Cmd86):
 
 
 class Cmd9F(Cmd86):
+    """Аналог 0x86.
+
+    Отличается от 0x86 ограниченным размером и использованием приоритета контейнера.
+    Используется только при работе регистратора через WiFi.
+    """
+
     id: int = 0x9F  # noqa: A003
 
 
+CmdRecordResponceWiFi = Cmd9F
+
+
 class CmdA0(Cmd87):
+    """Подтверждение приёма 0x9F. Разрешение перезаписи.
+
+    Если подтверждение получено регистратор передает следующий фрейм данных
+    и сдвигает указатель последнего доставленного ИС для данного соединения.
+    Также как и 0x9F используется только при работе терминала через WiFi.
+    """
+
     id: int = 0xA0  # noqa: A003
+
+
+CmdRecordResponceWiFiAck = CmdA0
 
 
 commands = {}
