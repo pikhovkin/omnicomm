@@ -11,8 +11,8 @@ Command = type['BaseCommand']
 
 
 class BaseCommand:
-    id: int = 0  # noqa: A003
-    format: str = ''  # noqa: A003
+    id: int = 0
+    format: str = ''
 
     BASE_TIME: int = 1230768000
 
@@ -27,10 +27,7 @@ class BaseCommand:
     def to_omnicomm_time(cls, unix_time: int | None) -> int:
         if unix_time is None:
             unix_time = int(time.time())
-        omnicomm_time = unix_time - cls.BASE_TIME
-        if omnicomm_time < 0:
-            omnicomm_time = 0
-        return omnicomm_time
+        return max(unix_time - cls.BASE_TIME, 0)
 
     @classmethod
     def pack_protobuf(cls, value: dict, proto_class: type[Message]) -> bytes:
@@ -65,8 +62,8 @@ class Cmd80(BaseCommand):
     Сообщение, посылаемое регистратором после установки TCP соединения.
     """
 
-    id: int = 0x80  # noqa: A003
-    format: str = 'II'  # noqa: A003
+    id: int = 0x80
+    format: str = 'II'
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:  # noqa: ARG003
@@ -84,8 +81,8 @@ class Cmd81(BaseCommand):
     Версия КС, определяет наличие/отсутствие каких либо функций у КС (необязательная информационная команда).
     """
 
-    id: int = 0x81  # noqa: A003
-    format: str = 'II'  # noqa: A003
+    id: int = 0x81
+    format: str = 'II'
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:  # noqa: ARG003
@@ -98,8 +95,8 @@ class Cmd85(BaseCommand):
     КС посылает регистратору, сквозной номер записи с которого необходимо начать передачу архива в текущем сеансе.
     """
 
-    id: int = 0x85  # noqa: A003
-    format: str = 'I'  # noqa: A003
+    id: int = 0x85
+    format: str = 'I'
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:  # noqa: ARG003
@@ -116,8 +113,8 @@ class Cmd86(BaseCommand):
     Контейнер информационных сообщений, содержит используется для передачи записей информационных сообщений архива.
     """
 
-    id: int = 0x86  # noqa: A003
-    format: str = 'IIB'  # noqa: A003
+    id: int = 0x86
+    format: str = 'IIB'
 
     # @classmethod
     # def to_datetime(cls, omnicomm_time):
@@ -188,8 +185,8 @@ class Cmd87(BaseCommand):
     позволяя затирать уже полученные записи архива.
     """
 
-    id: int = 0x87  # noqa: A003
-    format: str = 'I'  # noqa: A003
+    id: int = 0x87
+    format: str = 'I'
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:  # noqa: ARG003
@@ -206,8 +203,8 @@ class Cmd88(BaseCommand):
     Регистратор подтверждает КС перемещение указателя хвоста архива.
     """
 
-    id: int = 0x88  # noqa: A003
-    format: str = 'I'  # noqa: A003
+    id: int = 0x88
+    format: str = 'I'
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:  # noqa: ARG003
@@ -267,7 +264,7 @@ class Cmd93(BaseCommand):
     КС может выполнять запрос к Регистратору для контроля хода часов.
     """
 
-    id: int = 0x93  # noqa: A003
+    id: int = 0x93
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:  # noqa: ARG003
@@ -284,8 +281,8 @@ class Cmd94(BaseCommand):
     Используется для синхронизации времени.
     """
 
-    id: int = 0x94  # noqa: A003
-    format: str = 'I'  # noqa: A003
+    id: int = 0x94
+    format: str = 'I'
 
     @classmethod
     def from_dict(cls, value: dict, conf: dict) -> tuple[int, ...]:  # noqa: ARG003
@@ -303,7 +300,7 @@ class Cmd95(Cmd86):
     Команда генерируется регистратором по завершении передачи архива и удержании TCP сессии КС-ом.
     """
 
-    id: int = 0x95  # noqa: A003
+    id: int = 0x95
 
 
 # class Cmd96(BaseCommand):
@@ -349,7 +346,7 @@ class Cmd9F(Cmd86):
     Используется только при работе регистратора через WiFi.
     """
 
-    id: int = 0x9F  # noqa: A003
+    id: int = 0x9F
 
 
 class CmdA0(Cmd87):
@@ -360,7 +357,7 @@ class CmdA0(Cmd87):
     Также как и 0x9F используется только при работе терминала через WiFi.
     """
 
-    id: int = 0xA0  # noqa: A003
+    id: int = 0xA0
 
 
 commands = {}

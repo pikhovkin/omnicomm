@@ -83,20 +83,20 @@ python = ["3.10", "3.11", "3.12"]
 detached = true
 dependencies = [
   "black>=23.1.0",
-  "mypy>=1.0.0",
-  "ruff>=0.0.243",
-  "isort",
+  "mypy>=1.10, <1.11",
+  "ruff>=0.6.2, <0.7",
+  "isort>=5.13.2",
 ]
 [tool.hatch.envs.lint.scripts]
 typing = "mypy --install-types --non-interactive {args:omnicomm}"
 style = [
-  "isort {args:omnicomm}",
-  "ruff {args:omnicomm}",
+  "ruff check {args:omnicomm}",
   "black --check --diff {args:omnicomm}",
 ]
 fmt = [
+  "isort {args:omnicomm}",
   "black {args:omnicomm}",
-  "ruff --fix {args:omnicomm}",
+  "ruff format {args:omnicomm}",
   "style",
 ]
 all = [
@@ -122,7 +122,9 @@ src = [
 ]
 target-version = "py310"
 line-length = 120
-select = [
+indent-width = 4
+#lint.extend-select = ["I"]
+lint.select = [
   "A",
   "ARG",
   "B",
@@ -149,8 +151,8 @@ select = [
   "W",
   "YTT",
 ]
-ignore = [
-  'Q000', 'C408', 'T201',
+lint.ignore = [
+  'Q000', 'C408', 'T201', 'RUF002',
   # Allow non-abstract empty methods in abstract base classes
   "B027",
   # Allow boolean positional values in function calls, like `dict.get(... True)`
@@ -159,8 +161,10 @@ ignore = [
   "S105", "S106", "S107",
   # Ignore complexity
   "C901", "PLR0911", "PLR0912", "PLR0913", "PLR0915",
+  # To avoid conflict with formatter
+  "ISC001",
 ]
-unfixable = [
+lint.unfixable = [
   # Don't touch unused imports
   "F401",
 ]
@@ -168,13 +172,18 @@ extend-exclude = [
   "omnicomm/proto"
 ]
 
-[tool.ruff.isort]
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.ruff.lint.isort]
 known-first-party = ["omnicomm"]
 
-[tool.ruff.flake8-tidy-imports]
+[tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 # Tests can use magic values, assertions, and relative imports
 "tests/**/*" = ["PLR2004", "S101", "TID252"]
 

@@ -23,7 +23,8 @@ def import_string(dotted_path):
     try:
         module_path, class_name = dotted_path.rsplit(".", 1)
     except ValueError as err:
-        raise ImportError("%s doesn't look like a module path" % dotted_path) from err
+        msg = f"{dotted_path} doesn't look like a module path"
+        raise ImportError(msg) from err
 
     try:
         return cached_import(module_path, class_name)
